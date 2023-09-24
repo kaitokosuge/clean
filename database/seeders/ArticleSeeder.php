@@ -34,5 +34,14 @@ class ArticleSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'folder_id' => 2,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'memo' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }

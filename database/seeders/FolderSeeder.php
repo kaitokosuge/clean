@@ -23,5 +23,12 @@ class FolderSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        DB::table('folders')->insert([
+            'title' => 'levtech-college',
+            'image' => 'https://kaiton-blog.space/img/tonb.png',
+            'user_id' => 1,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
