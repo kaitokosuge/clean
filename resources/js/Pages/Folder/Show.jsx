@@ -11,7 +11,7 @@ function Show(folder) {
             <ul>
                 {folder.folder.articles.map((article) => (
                     <>
-                        <li className="mt-5">
+                        <li className="">
                             <a href={article.url} target="_blank" className="flex items-center">
                                 <img className="w-[30px] rounded-md mr-5"src={article.image}/>
                                 <p className="text-xs mr-5">{article.title}</p>

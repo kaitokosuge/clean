@@ -43,5 +43,41 @@ class ArticleSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        DB::table('articles')->insert([
+            'title' => 'Laravelを始めよう1',
+            'folder_id' => 2,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/ton.png',
+            'memo' => 'Laravel始めたい人にまずお勧めする記事',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'バイトのGoogleカレンダー',
+            'folder_id' => 2,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonp.png',
+            'memo' => '業務用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'react async crud',
+            'folder_id' => 3,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/ton.png',
+            'memo' => '非同期のクラッドを作る',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'react component',
+            'folder_id' => 3,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/ton.png',
+            'memo' => 'コンポーネントに切り分ける最適解',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
