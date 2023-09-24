@@ -10,7 +10,7 @@ function Index(props) {
         <>
             <ul>
                 {folders.map((folder) => (
-                    <li className="flex mt-10">
+                    <li className="flex mt-10 p-5">
                         <div className="w-[20%]">
                             <Link href={`/folder/${folder.id}`} className="flex items-center">
                                 <img className="w-[30px] rounded-md mr-1"src={folder.image}/>
