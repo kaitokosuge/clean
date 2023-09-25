@@ -31,6 +31,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/test',function () {
+    return Inertia::render('Folder/Test');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/',[FolderController::class, 'index']);
     Route::get('/folder/{folder}',[FolderController::class, 'show']);
