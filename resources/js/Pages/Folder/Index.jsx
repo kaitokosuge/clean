@@ -11,11 +11,11 @@ function Index(props) {
     console.log('index folders',folders);
     //保存するものは一旦titleのみでOK
     const {data , setData} = useForm({
+        key: crypto.randomUUID(),
         title:'',
         image:'https://kaiton-blog.space/img/tony.png',
-        updated_at:'just now',
         rgb:'255,255,255,255',
-
+        updated_at:'just now!!!'
     })
     //folder一覧のfoldersの管理
     const [ indexFolders , setIndexFolders ] = useState(folders)
@@ -33,7 +33,7 @@ function Index(props) {
                 body: JSON.stringify(data),
             })
             if (response.ok) {
-                const newFolders = [...indexFolders,data]
+                const newFolders = [data,...indexFolders]
                 setIndexFolders(newFolders);
                 console.log('response-ok')
             } else {
@@ -43,14 +43,17 @@ function Index(props) {
             console.log('async-error')
         }
     }
+    // useEffect(() => {
+    //     const newFolders = [data,...indexFolders]
+    //     setIndexFolders(newFolders);
+    // }, []);
     return (
-        <div>
-            <a href="/create" className="text-white">create folder</a>
-            <div class="bg-slate-900 w-screen h-screen fixed"></div>
+        <div className="flex">
+            <div class="bg-space w-screen h-screen fixed"></div>
             <ul className="w-[50%]">
                 {indexFolders.map((folder,index) => (
                     <li className={index % 2 === 0 ? 'flex p-5 w-full relative z-10':'flex  p-5 w-full relative z-10 flex-row-reverse'}>
-                        <Link href={`/folder/${folder.id}`} className="block" >
+                        <Link href={`/folder/${folder.key}`} className="block" >
                             <div className="rounded-full shadow w-[200px] h-[200px]" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
                             <div className="flex items-center mt-5">
                                 <img className="w-[20px] rounded-md mr-1"src={folder.image}/>
@@ -61,7 +64,7 @@ function Index(props) {
                     </li>   
                 ))}
             </ul>
-            <form onSubmit={handleCreateFolder} className="absolute z-10">
+            <form onSubmit={handleCreateFolder} className="z-10 block fixed">
                 <h2>title</h2>
                 <input className="text-black"type="text" onChange= {(e) => setData("title" , e.target.value)}/>
                 <button type="submit" className="pointer">保存</button>

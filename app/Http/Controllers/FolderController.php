@@ -10,10 +10,11 @@ class FolderController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Folder/Index')->with(['folders' => Folder::with('articles')->get()]);
+        return Inertia::render('Folder/Index')->with(['folders' => Folder::with('articles')->orderBy('updated_at', 'DESC')->get()]);
     }
-    public function show(Folder $folder)
+    public function show($key)
     {
+        $folder = Folder::where('key', $key)->first();
         return Inertia::render('Folder/Show')->with(['folder' => $folder->load('articles')]);
     }
     public function create()

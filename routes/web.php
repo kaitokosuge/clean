@@ -37,7 +37,7 @@ Route::get('/test',function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/',[FolderController::class, 'index']);
-    Route::get('/folder/{folder}',[FolderController::class, 'show']);
+    Route::get('/folder/{key}',[FolderController::class, 'show']);
     Route::get('/create',[FolderController::class, 'create']);
     Route::post('/folder',[FolderController::class, 'store']);
     Route::get('/get/folders',[FolderController::class,'getFolders']);
