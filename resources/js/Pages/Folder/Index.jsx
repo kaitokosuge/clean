@@ -43,16 +43,12 @@ function Index(props) {
             console.log('async-error')
         }
     }
-    // useEffect(() => {
-    //     const newFolders = [data,...indexFolders]
-    //     setIndexFolders(newFolders);
-    // }, []);
     return (
         <div className="flex">
             <div class="bg-space w-screen h-screen fixed"></div>
             <ul className="w-[50%]">
                 {indexFolders.map((folder,index) => (
-                    <li className={index % 2 === 0 ? 'flex p-5 w-full relative z-10':'flex  p-5 w-full relative z-10 flex-row-reverse'}>
+                    <li className={index % 2 === 0 ? 'flex p-5 w-full relative z-10':'flex  p-5 w-full relative z-10 flex-row-reverse'} key={folder.key}>
                         <Link href={`/folder/${folder.key}`} className="block" >
                             <div className="rounded-full shadow w-[200px] h-[200px]" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
                             <div className="flex items-center mt-5">
