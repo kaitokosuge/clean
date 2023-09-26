@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
+            $table->string('image')->default('https://kaiton-blog.space/img/tony.png');
             $table->foreignId('user_id')->constrained();
-            $table->string('rgb');
+            $table->string('rgb')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
