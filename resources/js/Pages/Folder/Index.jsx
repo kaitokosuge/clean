@@ -63,6 +63,7 @@ function Index(props) {
             <form onSubmit={handleCreateFolder} className="z-10 block fixed">
                 <h2>title</h2>
                 <input className="text-black"type="text" onChange= {(e) => setData("title" , e.target.value)}/>
+                <input type="file" onChange={(e) => setData("image" , e.target.value)}/>
                 <button type="submit" className="pointer">保存</button>
             </form> 
         </div>
