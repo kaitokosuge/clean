@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
+            $table->text('key')->nullable();
             $table->string('title');
             $table->string('image')->default('https://kaiton-blog.space/img/tony.png');
             $table->foreignId('user_id')->constrained();
