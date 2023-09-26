@@ -16,4 +16,21 @@ class FolderController extends Controller
     {
         return Inertia::render('Folder/Show')->with(['folder' => $folder->load('articles')]);
     }
+    public function create()
+    {
+        return Inertia::render('Folder/Create');
+    }
+    public function store(Request $request,Folder $folder)
+    {
+        $input = $request->all();
+        $folder->user_id = \Auth::id();
+        $folder->fill($input)->save();
+    }
+    public function getFolders()
+    {
+        $folders = Folder::all();
+        return response()->json([
+            'folders' => $folders,
+        ]);
+    }
 }

@@ -38,7 +38,9 @@ Route::get('/test',function () {
 Route::middleware('auth')->group(function () {
     Route::get('/',[FolderController::class, 'index']);
     Route::get('/folder/{folder}',[FolderController::class, 'show']);
+    Route::get('/create',[FolderController::class, 'create']);
     Route::post('/folder',[FolderController::class, 'store']);
+    Route::get('/get/folders',[FolderController::class,'getFolders']);
     Route::post('/article',[ArticleController::class, 'store']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
