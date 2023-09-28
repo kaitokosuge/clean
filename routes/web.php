@@ -41,7 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/create',[FolderController::class, 'create']);
     Route::post('/folder',[FolderController::class, 'store']);
     Route::get('/get/folders',[FolderController::class,'getFolders']);
-    Route::post('/article',[ArticleController::class, 'store']);
+
+    Route::post('/article/{folder}',[ArticleController::class, 'store']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
