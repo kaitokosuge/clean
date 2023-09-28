@@ -1,4 +1,6 @@
 import React from "react";
+import { useForm } from "@inertiajs/react";
+
 
 function Show(folder) {
     console.log('show props',folder);
@@ -8,6 +10,9 @@ function Show(folder) {
         <>
             <img src={folder.image}/>
             <p>{folder.title}</p>
+            <form onSubmit={handleCreateArticle}>
+                <input type="text" onChange={}/>
+            </form>
             <ul>
                 {folder.folder.articles.map((article) => (
                     <>

@@ -9,17 +9,17 @@ function Index(props) {
     console.log('index props',props);
     const { folders } = props;
     console.log('index folders',folders);
-    //保存するものは一旦titleのみでOK
     const {data , setData} = useForm({
         key: crypto.randomUUID(),
         title:'',
-        image:'https://kaiton-blog.space/img/tony.png',
-        rgb:'255,255,255,255',
+        image:'https://kaiton-blog.space/img/tonr.png',
+        rgb:'25,25,145,255',
         updated_at:'just now!!!'
     })
     //folder一覧のfoldersの管理
     const [ indexFolders , setIndexFolders ] = useState(folders)
     const handleCreateFolder = async (e) => {
+        // console.log('e',e);
         e.preventDefault();
         let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         try {
@@ -62,9 +62,9 @@ function Index(props) {
             </ul>
             <form onSubmit={handleCreateFolder} className="z-10 block fixed">
                 <h2>title</h2>
-                <input className="text-black"type="text" onChange= {(e) => setData("title" , e.target.value)}/>
-                <input type="file" onChange={(e) => setData("image" , e.target.value)}/>
-                <button type="submit" className="pointer">保存</button>
+                <input className="text-black" type="text" onChange= {(e) => setData("title" , e.target.value)}/>
+                {/* <input type="file" onChange={(e) => {console.log('image',e.target.files[0]);setData( "image" ,e.target.files[0])}}/> */}
+                <button type="submit" className="pointer relative z-20">保存</button>
             </form> 
         </div>
         
