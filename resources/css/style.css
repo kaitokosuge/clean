@@ -4,8 +4,8 @@
     height:200px; */
     position: relative;
     z-index: 3;
-    box-shadow: -20px -10px 50px 20px rgba(0, 0, 0, 0.8) inset !important;
+    box-shadow: -20px -10px 35px 20px rgba(0, 0, 0, 0.8) inset !important;
 }
 .bg-space{
-    background:linear-gradient(10deg,black,black,black,rgb(0, 16, 22),black,black,black,rgb(10, 0, 19),rgb(15, 0, 30));
+    background:linear-gradient(10deg,black,black,black,rgb(0, 23, 31),black,black,black,rgb(10, 0, 19),rgb(28, 0, 55));
 }
