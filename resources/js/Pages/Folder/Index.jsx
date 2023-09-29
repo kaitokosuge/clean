@@ -34,7 +34,6 @@ function Index(props) {
                 // const newFolders = [data,...indexFolders]
                 // setIndexFolders(newFolders);
                 setFetch(!fetching);
-                handleCreateFolder(indexFolders)
                 console.log('response-ok')
             } else {
               console.log('error-json')
@@ -43,6 +42,7 @@ function Index(props) {
             console.log('async-error')
         }
     }
+    //保存後にfetchingのステートを変更しuseEffectを実行→最新のindexFolders取得
     const [ fetching , setFetch ] = useState(true);
     useEffect(() =>{
         fetch("/get/folders")

@@ -39,7 +39,7 @@ function Show({folder , folders}) {
     }
     return (
         <>
-        <div className="flex">
+        <div className="flex justify-between">
             <div className="w-[20%]">
                 <Menu folders={folders}/> 
             </div>
