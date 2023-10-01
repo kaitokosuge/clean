@@ -31,25 +31,22 @@ function Index(props) {
                 body: JSON.stringify(data),
             })
             if (response.ok) {
-                // const newFolders = [data,...indexFolders]
-                // setIndexFolders(newFolders);
-                setFetch(!fetching);
-                console.log('response-ok')
+                await getFolders();
             } else {
               console.log('error-json')
+              alert('もう一度送信してください')
             }
         } catch (error) {
             console.log('async-error')
+            alert('もう一度送信してください🙇')
         }
     }
-    //保存後にfetchingのステートを変更しuseEffectを実行→最新のindexFolders取得
-    const [ fetching , setFetch ] = useState(true);
-    useEffect(() =>{
-        fetch("/get/folders")
+    const getFolders = ()=>{
+        return fetch("/get/folders")
         .then(response => response.json())
         .then(data => {setIndexFolders(data.folders)})
         .catch(error => console.error('Error fetching folders', error))
-    },[fetching])
+    }
     return (
         <div className="flex justify-between">
             <div class="bg-space w-screen h-screen fixed"></div>
