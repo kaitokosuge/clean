@@ -13,11 +13,18 @@ function Show({folder , folders}) {
         url:'',
         image: File,
     })
-    const handleCreateArticle = (e) => {
+    const handleCreateArticle = async (e) => {
         e.preventDefault();
-        const newFolder = [...folder.articles,data]
-        setIndexFolder(newFolder)
-        post(`/article/${folder.id}`);
+        // const newFolder = [...folder.articles,data]
+        // setIndexFolder(newFolder)
+        getFolders();
+        await post(`/article/${folder.id}`);
+    }
+    const getFolders = ()=>{
+        return fetch("/get/folders")
+        .then(response => response.json())
+        .then(data => {setIndexFolder(data.folders.folder.articles)})
+        .catch(error => console.error('Error fetching folders', error))
     }
     // const handleCreateArticle = async (e) => {
     //     e.preventDefault();

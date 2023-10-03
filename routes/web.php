@@ -34,6 +34,9 @@ Route::get('/dashboard', function () {
 Route::get('/test',function () {
     return Inertia::render('Folder/Test');
 });
+Route::get('/planet',function(){
+    return Inertia::render('Design/Planet');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/',[FolderController::class, 'index']);
@@ -43,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/get/folders',[FolderController::class,'getFolders']);
 
     Route::post('/article/{folder}',[ArticleController::class, 'store']);
+    Route::get('/get/articles',[ArticleController::class,'getArticles']);
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

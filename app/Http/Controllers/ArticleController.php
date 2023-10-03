@@ -22,4 +22,8 @@ class ArticleController extends Controller
         // dd($input);
         $article->fill($input)->save();
     }
+    public function getArticles()
+    {
+        
+    }
 }
