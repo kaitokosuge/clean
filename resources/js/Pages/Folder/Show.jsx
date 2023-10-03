@@ -44,13 +44,13 @@ function Show({folder , folders}) {
                 <h1><Link href="/">clean</Link></h1>
                 <Menu folders={folders}/> 
             </div>
-            <div className="w-[60%]">
+            <div className="w-[70%]">
                 <div className="flex mx-auto">
-                    <div>
-                        <img className="w-[50px] h-[50px] rounded-xl"src={folder.image}/>
-                        <p className="font-bold text-md mt-10">{folder.title}</p>
+                    <div className="w-[90px] h-[90px] rounded-full shadow" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
+                    <div className="flex items-center ml-10">
+                        <img className="w-[30px] h-[30px] rounded-xl"src={folder.image}/>
+                        <p className="font-bold text-md ml-5">{folder.title}</p>
                     </div>
-                    <div className="w-[200px] h-[200px] rounded-full shadow" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
                 </div>
                 <form onSubmit={handleCreateArticle} className="mt-10">
                     <p className="font-bold text-xs">article area</p>
@@ -65,8 +65,8 @@ function Show({folder , folders}) {
                             <li className="">
                                 <a href={article.url} target="_blank" className="flex items-center pointer">
                                     <img className="w-[30px] rounded-md mr-5"src={article.image}/>
-                                    <p className="text-xs mr-5">{article.title}</p>
-                                    <p className="font-bold text-blue-200 mr-5">{article.url}</p>
+                                    <p className="mr-5 text-md">{article.title}</p>
+                                    <p className="font-bold text-blue-200 mr-5 text-xs">{article.url}</p>
                                     <p className="text-xs font-weight mr-5">{article.memo}</p>
                                 </a>
                             </li> 
@@ -74,9 +74,7 @@ function Show({folder , folders}) {
                     ))}
                 </ul>
             </div>
-        </div>
-            
-            
+        </div>  
         </>
     );
 }

@@ -4,8 +4,17 @@
     height:200px; */
     position: relative;
     z-index: 3;
-    box-shadow: -20px -10px 35px 20px rgba(0, 0, 0, 0.8) inset !important;
+    box-shadow: -20px -8px 30px 20px rgba(0, 0, 0, 0.85) inset !important;
+}
+.shadow-small{
+    border-radius:50%;
+    /* width:200px;
+    height:200px; */
+    position: relative;
+    z-index: 3;
+    box-shadow: -10px -2px 8px 6px rgba(0, 0, 0, 0.6) inset !important;
 }
 .bg-space{
-    background:linear-gradient(10deg,black,black,black,rgb(0, 23, 31),black,black,black,rgb(10, 0, 19),rgb(28, 0, 55));
+    /* background:linear-gradient(10deg,black,black,black,rgb(0, 23, 31),black,black,black,rgb(19, 0, 36),rgb(28, 0, 55)); */
+    background: #000;
 }
