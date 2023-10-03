@@ -12,8 +12,8 @@ function Index(props) {
     const {data , setData} = useForm({
         key: crypto.randomUUID(),
         title:'',
-        image:'https://kaiton-blog.space/img/tonr.png',
-        rgb:'200,50,65,255',
+        image:'',
+        rgb:'10,250,255,255',
         updated_at:'just now!!!'
     })
 
@@ -31,47 +31,53 @@ function Index(props) {
                 body: JSON.stringify(data),
             })
             if (response.ok) {
-                // const newFolders = [data,...indexFolders]
-                // setIndexFolders(newFolders);
-                setFetch(!fetching);
-                console.log('response-ok')
+                await getFolders();
             } else {
               console.log('error-json')
+              alert('ページを再読み込みし、もう一度送信してください🙇')
             }
         } catch (error) {
             console.log('async-error')
+            alert('もう一度送信してください🙇')
         }
     }
-    //保存後にfetchingのステートを変更しuseEffectを実行→最新のindexFolders取得
-    const [ fetching , setFetch ] = useState(true);
+    const getFolders = ()=>{
+        return fetch("/get/folders")
+        .then(response => response.json())
+        .then(data => {setIndexFolders(data.folders)})
+        .catch(error => console.error('Error fetching folders', error))
+    }
     useEffect(() =>{
         fetch("/get/folders")
         .then(response => response.json())
         .then(data => {setIndexFolders(data.folders)})
         .catch(error => console.error('Error fetching folders', error))
-    },[fetching])
+    },[])
     return (
         <div className="flex justify-between">
             <div class="bg-space w-screen h-screen fixed"></div>
             <div className="w-[20%]">
                 {/* <FolderForm handleCreateFolder={handleCreateFolder}/> */}
                 <form onSubmit={handleCreateFolder} className="z-10 block fixed">
-                    <input type="text" placeholder="title" className="mt-5 text-white bg-gray-800 rounded-md" onChange= {(e) => setData("title" , e.target.value)}/>
-                    <button type="submit" className="pointer relative z-20 bg-slate-700 rounded-md px-5 py-1">save</button>
+                    <input type="text" placeholder="folder" className="mt-5 text-white bg-black rounded-md" onChange= {(e) => setData("title" , e.target.value)}/>
+                    <button type="submit" className="pointer relative z-20 bg-black border border-gray-600 rounded-md px-1 text-gray-600 py-1">add</button>
                 </form>
-                <Menu folders = {indexFolders}/> 
+                <Menu folders = {indexFolders}/>
             </div>
-            <ul className="w-[60%]">
+            <ul className="w-[75%]">
                 {indexFolders.map((folder,index) => (
-                    <li className={index % 2 === 0 ? 'flex p-5 w-full relative z-10':'flex  p-5 w-full relative z-10 flex-row-reverse'} key={folder.id}>
-                        {folder.id}
-                        <Link href={`/folder/${folder.key}`} className="block pointer" >
-                            <div className="rounded-full shadow w-[200px] h-[200px]" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
-                            <div className="flex items-center mt-5">
-                                <img className="w-[20px] rounded-md mr-1"src={folder.image}/>
-                                <p className="font-bold text-xs text-gray-300">{folder.title}</p>
+                    // <li className={index % 2 === 0 ? 'flex p-5 w-full relative z-10 duration-500':'flex  p-5 w-full relative z-10 flex-row-reverse duration-500'} key={folder.id}>
+                    <li className='flex p-5 w-full relative z-10 duration-500 mt-10' key={folder.id}>
+                        {/* {folder.id} */}
+                        <Link href={`/folder/${folder.key}`} className="pointer flex">
+                            <div className="rounded-full shadow w-[100px] h-[100px]" style={{ backgroundColor: `rgb(${folder.rgb})`, }}></div>
+                            <div>
+                                <div className="flex items-center mt-5">
+                                    <img className="w-[20px] rounded-md mr-1"src={folder.image}/>
+                                    <p className="font-bold text-md text-gray-100">{folder.title}</p>
+                                </div>
+                                <time className="font-bold text-xs text-gray-500 block mt-1">{folder.updated_at}</time>
                             </div>
-                            <time className="font-bold text-xs text-gray-500 block mt-1">{folder.updated_at}</time>
                         </Link>
                     </li>   
                 ))}

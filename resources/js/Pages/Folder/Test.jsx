@@ -30,7 +30,7 @@ function Test() {
   return (
     <div>
       <img
-        src="/img/shine.jpg"
+        src="/img/sea.jpg"
         alt="Sample Image"
         onLoad={handleImageLoad}
         style={{ display: 'none' }} // 画像を非表示にする
