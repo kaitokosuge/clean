@@ -12,7 +12,7 @@ function Index(props) {
     const {data , setData} = useForm({
         key: crypto.randomUUID(),
         title:'',
-        image:'https://kaiton-blog.space/img/tonr.png',
+        image:'',
         rgb:'10,250,255,255',
         updated_at:'just now!!!'
     })

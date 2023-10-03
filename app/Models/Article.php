@@ -11,6 +11,7 @@ class Article extends Model
     protected $fillable = [
         'title',
         'memo',
+        'img',
         'url',
         'folder_id',
     ];
