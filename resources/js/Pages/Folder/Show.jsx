@@ -13,46 +13,50 @@ function Show({folder , folders}) {
         url:'',
         image: File,
     })
-    const handleCreateArticle = async (e) => {
-        e.preventDefault();
-        // const newFolder = [...folder.articles,data]
-        // setIndexFolder(newFolder)
-        getFolders();
-        await post(`/article/${folder.id}`);
-    }
-    const getFolders = ()=>{
-        return fetch("/get/folders")
-        .then(response => response.json())
-        .then(data => {setIndexFolder(data.folders.folder.articles)})
-        .catch(error => console.error('Error fetching folders', error))
-    }
     // const handleCreateArticle = async (e) => {
     //     e.preventDefault();
-    //     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
-    //     try{
-    //         const response = await fetch(`/article/${folder.id}`,{
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 // 'Content-Type': 'multipart/form-data',
-    //                 'X-CSRF-TOKEN': csrf_token,
-    //             },
-    //             //folderのオブジェクトをjsonに変換して送る
-    //             body: JSON.stringify(data),
-    //         })
-    //         if (response.ok) {
-    //             console.log('data',data);
-    //             const newFolder = [data,...folder.articles]
-    //             setIndexFolder(newFolder);
-    //             console.log('response-ok')
-    //         } else {
-    //             console.log('data',data);
-    //             console.log('error-json')
-    //         }
-    //     } catch (error) {
-    //         console.log('async-error')
-    //     }
+    //     // const newFolder = [...folder.articles,data]
+    //     // setIndexFolder(newFolder)
+    //     // getFolders();
+    //     //  post(`/article/${folder.id}`);
     // }
+    const handleCreateArticle = async (e) => {
+        e.preventDefault();
+        let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+        const fileData = new FormData();
+        const imageData = document.querySelector(`input[name=image]`);
+        fileData.append('uploadfile' , imageData.files[0])
+        try{
+            const response = await fetch(`/article/${folder.id}`,{
+                method: 'POST',
+                headers: {
+                    //file dataを送信するときはcontent-type指定しないように
+                    // 'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf_token,
+                },
+                //folderのオブジェクトをjsonに変換して送る
+                body: fileData,
+            })
+            if (response.ok) {
+                console.log('data',data);
+                // const newFolder = [data,...folder.articles]
+                // setIndexFolder(newFolder);
+                console.log('response-ok')
+                await getArticles();
+            } else {
+                console.log('data',data);
+                console.log('error-json')
+            }
+        } catch (error) {
+            console.log('async-error')
+        }
+    }
+    const getArticles = async () => {
+        return await fetch(`/get/folder/${folder.id}`)
+        .then(res => res.json())
+        .then(data => {setIndexFolder(data.folder.articles)})
+        .catch(error => console.error('Error fetching folders', error))
+    }
     return (
         <>
         <div className="flex justify-between">
@@ -73,7 +77,7 @@ function Show({folder , folders}) {
                     <input className="bg-black rounded-md"type="text" onChange={(e) => setData("url" , e.target.value)} placeholder="url"/>
                     <input className="bg-black rounded-md"type="text" onChange={(e) => setData("title" , e.target.value)} placeholder="title"/>
                     <input className="bg-black rounded-md"type="text" onChange={(e) => setData("memo" , e.target.value)} placeholder="memo"/>
-                    <input className="bg-black" type="file" accept="image/*" onChange={(e) => setData("image" , e.target.files[0])}/>
+                    <input className="bg-black" type="file" accept="image/*" name="image"onChange={(e) => setData("image" , e.target.files[0])}/>
                     <button type="submit">save</button>
                 </form>
                 <ul className="mt-10">

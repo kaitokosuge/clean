@@ -31,22 +31,25 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/test',function () {
+Route::get('/test', function () {
     return Inertia::render('Folder/Test');
 });
-Route::get('/planet',function(){
+Route::get('/planet', function () {
     return Inertia::render('Design/Planet');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/',[FolderController::class, 'index']);
-    Route::get('/folder/{key}',[FolderController::class, 'show']);
+    Route::get('/', [FolderController::class, 'index']);
+    Route::get('/folder/{key}', [FolderController::class, 'show']);
     // Route::get('/create',[FolderController::class, 'create']);
-    Route::post('/folder',[FolderController::class, 'store']);
-    Route::get('/get/folders',[FolderController::class,'getFolders']);
+    Route::post('/folder', [FolderController::class, 'store']);
+    Route::get('/get/folders', [FolderController::class, 'getFolders']);
 
-    Route::post('/article/{folder}',[ArticleController::class, 'store']);
-    Route::get('/get/articles',[ArticleController::class,'getArticles']);
+    Route::post('/article/{folder}', [ArticleController::class, 'store']);
+    // Route::get('/get/articles', [ArticleController::class, 'getArticles']);
+
+    //folder（内の記事）取得API
+    Route::get('/get/folder/{folder}', [FolderController::class, 'getArticles']);
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -54,4 +57,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
