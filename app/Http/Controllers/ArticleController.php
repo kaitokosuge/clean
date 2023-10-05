@@ -9,13 +9,13 @@ use Cloudinary;
 
 class ArticleController extends Controller
 {
-    public function store(Request $request,Article $article,Folder $folder)
+    public function store(Request $request, Article $article, Folder $folder)
     {
-        // dd($request);
         $input = $request->all();
         $article->folder_id = $folder->id;
-        $requestImage = $request->file('image');
-        if(isset($requestImage)){ //画像ファイルが送られた時だけ処理が実行される
+        $requestImage = $request->file('uploadfile');
+        // dd($requestImage);
+        if (isset($requestImage)) { //画像ファイルが送られた時だけ処理が実行される
             $image_url = Cloudinary::upload($requestImage->getRealPath())->getSecurePath();
             $input += ['img' => $image_url];
         }

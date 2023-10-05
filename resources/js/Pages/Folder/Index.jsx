@@ -12,7 +12,7 @@ function Index(props) {
     const {data , setData} = useForm({
         key: crypto.randomUUID(),
         title:'',
-        image:'',
+        image:'https://kaiton-blog.space/img/tony.png',
         rgb:'10,250,255,255',
         updated_at:'just now!!!'
     })
@@ -41,8 +41,8 @@ function Index(props) {
             alert('もう一度送信してください🙇')
         }
     }
-    const getFolders = ()=>{
-        return fetch("/get/folders")
+    const getFolders = async () => {
+        return await fetch("/get/folders")
         .then(response => response.json())
         .then(data => {setIndexFolders(data.folders)})
         .catch(error => console.error('Error fetching folders', error))

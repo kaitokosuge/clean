@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('img')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->text('memo')->nullable();
             $table->foreignId('folder_id')->constrained();
             $table->timestamps();
