@@ -11,6 +11,7 @@ class ArticleController extends Controller
 {
     public function store(Request $request, Article $article, Folder $folder)
     {
+        // dd($request);
         $input = $request->all();
         $article->folder_id = $folder->id;
         $requestImage = $request->file('uploadfile');
