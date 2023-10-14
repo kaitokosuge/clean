@@ -14,8 +14,11 @@ function Test() {
     const ctx = canvas.getContext('2d');
     console.log('ctx',ctx);
     //eのターゲットが画像になっているため下記で取得できる
-    const image = e.target;
-
+    // const image = e.target;
+    // image.crossOrigin = "Anonymous";
+    const image = new Image();
+    image.src = "https://res.cloudinary.com/dwryvqwrb/image/upload/v1696515622/cfc93ez8rvetvvs8mzdr.png";
+    image.crossOrigin = "Anonymous";
     canvas.width = image.width;
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
