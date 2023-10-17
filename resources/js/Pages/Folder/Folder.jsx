@@ -25,11 +25,21 @@ function Folder({folder}) {
             
                         <div onMouseEnter={handleMouseOver02} onMouseLeave={handleMouseOver02} className="w-[50px] h-[50px] rounded-full absolute  bg-white text-white">
                                     <p className="text-black">log</p>
-                                    <div className={isHover02 == true ? "absolute  text-white  opacity-100 visible z-50 duration-200" : "absolute  text-white z-50 opacity-0  invisible duration-200"} >
-                                        <ul className="fixed z-90 top-[50px] w-[60vw] h-[80vh] bg-white text-black p-10" >
-                                            <p className="text-4xl font-bold">Log</p>
-                                            <li>{folder.title}</li>
-                                            <li>{folder.id}</li>
+                                    <div className={isHover02 == true ? "absolute  text-white  opacity-100 visible z-50 duration-200" : " absolute  text-white z-50 opacity-0  invisible duration-200"} >
+                                        <ul className="fixed z-90 top-[50px] w-[60vw] rounded-xl h-[80vh] bg-white text-black p-10" >
+                                            <div className="flex">
+                                                <p className="text-6xl font-bold">Log</p>
+                                                <div className="flex ml-10">
+                                                <img className="w-[70px] h-[40px] object-cover"src="https://kaiton-blog.space/img/tonb.png" />
+                                                <div className="">
+                                                    <p className="font-bold text-xl">{folder.title}</p>
+                                                    <p>{folder.id}</p>
+                                                </div>
+                                                <Link href={`/folder/${folder.key}`}>
+                                                    edit
+                                                </Link>
+                                            </div>
+                                            </div>
                                         </ul>
                                     </div>
                                 </div>

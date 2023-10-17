@@ -126,7 +126,7 @@ const [isHover , setIsHover] = useState(false);
         </div>
       </Popover>
     */}
-    <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOver}className={isHover == true ? "fixed bottom-[10px] bg-white h-[300px] w-[200px] pointer duration-500 z-50":"fixed bottom-[-260px] bg-white h-[300px] w-[200px] pointer duration-500 z-50"}>
+    <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOver}className={isHover == true ? "fixed bottom-[10px] bg-white h-[300px] w-[200px] pointer duration-200 z-50":"fixed bottom-[-260px] bg-white h-[300px] w-[200px] pointer duration-500 z-50"}>
         <ul>
             <li>hello</li>
             <li>hello2</li>
@@ -144,5 +144,4 @@ const [isHover , setIsHover] = useState(false);
         
     );
 }
-
 export default Index;
