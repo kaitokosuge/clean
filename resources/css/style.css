@@ -13,6 +13,9 @@ body {
     animation: 40s infinite bggradient;
     position: relative;
 }
+.bg-shadow{
+    background:linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0, 0),rgb(30, 30, 30),rgb(30, 30, 30),rgb(30, 30, 30),rgb(30, 30, 30));
+}
 @keyframes bggradient {
     0%,100% {
         background-position: 0 50%

@@ -7,8 +7,10 @@ function Index() {
     return (
         <div>
             <Header />
-            <Sidebar />
-            <Articles />
+            <div className="flex">
+                <Sidebar />
+                <Articles />
+            </div>
             <Footer />
         </div>
     );

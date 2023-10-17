@@ -1,7 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import { Link , useForm } from '@inertiajs/react';
-import Menu from "../Common/Menu";
-import FolderForm from "../Common/FolderForm";
+
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import Drawer from '@mui/material/Drawer';
 import Popover from '@mui/material/Popover';
@@ -85,12 +84,12 @@ const [isHover , setIsHover] = useState(false);
         <div className="flex justify-between">
             <div class="bg-space w-screen h-screen fixed"></div>
             <div className="w-[20%]">
-                {/* <FolderForm handleCreateFolder={handleCreateFolder}/> */}
+                
                 <form onSubmit={handleCreateFolder} className="z-10 block fixed">
                     <input type="text" placeholder="folder" className="mt-5 text-white bg-black rounded-md" onChange= {(e) => setData("title" , e.target.value)}/>
                     <button type="submit" className="pointer relative z-20 bg-black border border-gray-600 rounded-md px-1 text-gray-600 py-1">add</button>
                 </form>
-                <Menu folders = {indexFolders}/>
+                
             </div>
             <ul className="w-[75%]">
             

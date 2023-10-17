@@ -1,6 +1,5 @@
 import React , {useEffect, useState} from "react";
 import { useForm , Link } from "@inertiajs/react";
-import Menu from "../Common/Menu";
 
 function Show({folder , folders}) {
     console.log('show props',folder);
@@ -65,7 +64,7 @@ function Show({folder , folders}) {
         <div className="flex justify-between">
             <div className="w-[20%]">
                 <h1><Link href="/">clean</Link></h1>
-                <Menu folders={folders}/> 
+                
             </div>
             <div className="w-[70%]">
                 <div className="flex mx-auto">
