@@ -1,7 +1,7 @@
 function Articles() {
     return (
         <div>
-            Enter
+            
         </div>
     );
 }

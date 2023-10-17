@@ -39,7 +39,7 @@ Route::get('/planet', function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Presentation/Pages/Articles');
+    return Inertia::render('Presentation/Index');
 });
 
 Route::middleware('auth')->group(function () {
