@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import ArticlesLog from './ArticlesLog';
 
 
 function Articles() {
+    const [ isHover , setIsHover ] = useState(false);
+    const handleHover = () =>{
+        setIsHover(!isHover);
+    }
     return (
         <div className="w-[70%] mt-10 ml-[25%] pb-[250px]">
             <ul>
@@ -12,10 +18,12 @@ function Articles() {
                             <p className="text-xs mt-1">https://kaiton-blog.space</p>
                             <p className="mt-1 text-xs">サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。</p>
                             <div className="flex mt-1">
-                                <img className="w-[30px] h-[30px] rounded-full" src="https://kaiton-blog.space/img/pen.png"/>
+                                <img onMouseEnter={handleHover}className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/ton.png"/>
+                                <img className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/pen.png"/>
                             </div>
                         </div>
                     </a>
+                    <ArticlesLog/>
                 </li>
                 <li className="">
                     <a href="" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
@@ -24,8 +32,13 @@ function Articles() {
                             <p className="font-bold text-xl">Kaitokosugeno portfolio</p>
                             <p className="text-xs mt-1">https://kaiton-blog.space</p>
                             <p className="mt-1 text-xs">サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。</p>
+                            <div className="flex mt-1">
+                                <img onMouseEnter={handleHover}className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/ton.png"/>
+                                <img className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/pen.png"/>
+                            </div>
                         </div>
                     </a>
+                    <ArticlesLog/>
                 </li>
                 <li className="">
                     <a href="" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
