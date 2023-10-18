@@ -21,9 +21,15 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.14.13",
         "@mui/material": "^5.14.13"
+
+        "draft-html": "^1.0.1-test2",
+        "draft-js": "^0.11.7",
+        "react-draft-wysiwyg": "^1.15.0"
+
     }
 }

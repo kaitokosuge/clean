@@ -1,5 +1,10 @@
 import React , {useEffect, useState} from "react";
+import { draftToHtml } from "draft-html";
+import { EditorState, convertToRaw } from "draft-js";
 import { useForm , Link } from "@inertiajs/react";
+
+
+
 
 function Show({folder , folders}) {
     console.log('show props',folder);
@@ -10,8 +15,12 @@ function Show({folder , folders}) {
         title:'',
         memo:'',
         url:'',
-        image: File,
     })
+    const [editorState, setEditorState] = useState(() =>
+        EditorState.createEmpty()
+    );
+    let textToHtml = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    console.log(textToHtml);
     const handleCreateArticle = async (e) => {
         e.preventDefault();
         let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -27,7 +36,8 @@ function Show({folder , folders}) {
                     'X-CSRF-TOKEN': csrf_token,
                 },
                 //folderのオブジェクトをjsonに変換して送る
-                body: fileData,
+                // body: JSON.stringify(data),
+                body:fileData,
             })
             if (response.ok) {
                 console.log('data',data);
@@ -45,19 +55,14 @@ function Show({folder , folders}) {
             console.log('async-error')
         }
     }
-    const showSendText = async () => {
-        // useEffect(() => {
-            const notificationArea = document.querySelector('.notification--area');
-            const pElement = document.createElement('p');
-            pElement.innetText('sended...');
-            notificationArea.appendChild(pElement);
-        // })
-    }
     const getArticles = async () => {
         return await fetch(`/get/folder/${folder.id}`)
         .then(res => res.json())
         .then(data => {setIndexFolder(data.folder.articles)})
         .catch(error => console.error('Error fetching folders', error))
+    }
+    const handleSendImage = () =>{
+
     }
     return (
         <>
@@ -74,14 +79,31 @@ function Show({folder , folders}) {
                         <p className="font-bold text-md ml-5">{folder.title}</p>
                     </div>
                 </div>
-                <form onSubmit={handleCreateArticle} className="mt-10" encType="multipart/form-data">
+                <form onSubmit={handleCreateArticle} className="mt-10">
                     <p className="font-bold text-xs">article area</p>
-                    <input className="bg-black rounded-md"type="text" onChange={(e) => setData("url" , e.target.value)} placeholder="url"/>
-                    <input className="bg-black rounded-md"type="text" onChange={(e) => setData("title" , e.target.value)} placeholder="title"/>
-                    <input className="bg-black rounded-md"type="text" onChange={(e) => setData("memo" , e.target.value)} placeholder="memo"/>
-                    <input className="bg-black" type="file" accept="image/*" name="image"onChange={(e) => setData("image" , e.target.files[0])}/>
+                    <input className="bg-black rounded-md"type="text" name="url"onChange={(e) => setData("url" , e.target.value)} placeholder="url"/>
+                    <input className="bg-black rounded-md"type="text" name="title"onChange={(e) => setData("title" , e.target.value)} placeholder="title"/>
+                    <input className="bg-black" type="file" accept="image/*" name="image"/>
                     <button type="submit">save</button>
                 </form>
+                {/* <form onSubmit={handleSendImage} encType="multipart/form-data">
+                    <input className="bg-black" type="file" accept="image/*" name="image"/>
+                    <button type="submit">save</button>
+                </form> */}
+                <div className="editor text-black bg-white">
+                    <Editor
+                        editorState={editorState}
+                        toolbarClassName="toolbarClassName"
+                        wrapperClassName="wrapperClassName"
+                        editorClassName="editorClassName"
+                        onEditorStateChange={setEditorState}
+                        className="text-black border p-10"
+                        toolbar={{
+                            options: ["inline", "fontSize"],
+                        }}
+                    />
+                    {/* <textarea className="text-black"rows="30" cols="100" disabled></textarea> */}
+                </div>
                 <ul className="mt-10">
                     {indexFolder.map((article) => (
                         <>
