@@ -41,12 +41,11 @@ Route::get('/planet', function () {
 Route::get('/', function () {
     return Inertia::render('Presentation/Index');
 });
-
+// Route::get('/', [FolderController::class, 'index']);
 Route::middleware('auth')->group(function () {
-    // Route::get('/', [FolderController::class, 'index']);
+    Route::post('/folder', [FolderController::class, 'store']);
     Route::get('/folder/{key}', [FolderController::class, 'show']);
     // Route::get('/create',[FolderController::class, 'create']);
-    Route::post('/folder', [FolderController::class, 'store']);
     Route::get('/get/folders', [FolderController::class, 'getFolders']);
 
     Route::post('/article/{folder}', [ArticleController::class, 'store']);

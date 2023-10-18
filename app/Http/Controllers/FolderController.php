@@ -28,7 +28,6 @@ class FolderController extends Controller
         //     dd($image_url);
         //     $input += ['image' => $image_url];
         // }
-
         $folder->fill($input)->save();
     }
     public function getFolders()

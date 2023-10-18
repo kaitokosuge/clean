@@ -15,7 +15,7 @@ function ArticlesContent() {
                         <p className="text-xs mt-1">https://kaiton-blog.space</p>
                         <p className="mt-1 text-xs">サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。サイトの説明が入ります。</p>
                         <div className="flex mt-1">
-                            <img onMouseEnter={handleHover}className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/ton.png"/>
+                            <div onMouseEnter={handleHover}className="w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>Log</p></div>
                             <img className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/pen.png"/>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ function Index(props) {
     console.log('index props',props);
     const { folders } = props;
     const [ indexFolders , setIndexFolders ] = useState(folders);
-
+    
     const {data , setData} = useForm({
         key: crypto.randomUUID(),
         title:'',
@@ -23,7 +23,7 @@ function Index(props) {
         e.preventDefault();
         let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         try {
-            const response = await fetch('/folder',{
+            const response = await fetch('/folders',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
