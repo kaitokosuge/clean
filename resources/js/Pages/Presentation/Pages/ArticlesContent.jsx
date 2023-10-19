@@ -8,7 +8,7 @@ function ArticlesContent() {
     return (
         <>
             <li className="">
-                <a href="" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
+                <a href="" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-sky-950 hover:duration-200">
                     <img src="https://kaiton-blog.space/img/pen.png" className="w-[180px] h-[100px] object-cover rounded-md"/>
                     <div className="ml-5">
                         <p className="font-bold text-xl">Kaitokosugeno portfolio</p>

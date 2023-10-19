@@ -1,6 +1,7 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-function SidebarNav(props) {
+function SidebarNav() {
+    
     return (
         <div className="w-full h-[80%]">
             <nav className="overflow-scroll p-1 h-[100%] pl-[10%] pb-[100px]">
