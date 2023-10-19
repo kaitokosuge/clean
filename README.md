@@ -4,4 +4,5 @@
 <strong>コンポーネントの設計方法</strong>
 <ul>
     <li>UIロジックとデータ通信ロジックで分ける</li>
+    <p>ex) SidebarForm.jsx -> form UI定義　, SidebarFormContainer.jsx -> form 通信処理定義</p>
 </ul>
