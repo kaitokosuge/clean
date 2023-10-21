@@ -41,16 +41,15 @@ Route::get('/planet', function () {
 Route::get('/', function () {
     return Inertia::render('Presentation/Index');
 });
+Route::get('/get/folders', [FolderController::class, 'getFolders']);
+
 // Route::get('/', [FolderController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::post('/folder', [FolderController::class, 'store']);
     Route::get('/folder/{key}', [FolderController::class, 'show']);
     // Route::get('/create',[FolderController::class, 'create']);
-    Route::get('/get/folders', [FolderController::class, 'getFolders']);
-
     Route::post('/article/{folder}', [ArticleController::class, 'store']);
     // Route::get('/get/articles', [ArticleController::class, 'getArticles']);
-
     //folder（内の記事）取得API
     Route::get('/get/folder/{folder}', [FolderController::class, 'getArticles']);
 

@@ -2,10 +2,9 @@ import SidebarForm from "../Presentation/Common/Sidebar/SidebarForm";
 import { useState } from "react"; 
 
 
-function FolderFetch() {
-
+function SidebarFormContainer() {
     const [ formValue , setFormValue ] = useState();
-    console.log(formValue)
+    // console.log('sfc.jsx formValue',formValue)
     const handleFormSubmit = async (e) => {
 
         e.preventDefault();
@@ -21,7 +20,8 @@ function FolderFetch() {
                 body: JSON.stringify(formValue),
             })
             if(res.ok){
-                alert('sended!!!')
+                alert(`folder 「${formValue.title}」 が追加されました`)
+                // getFolder();
                 console.log(formValue)
             } else{
                 alert('ページを再読み込みし、もう一度送信してください')
@@ -31,10 +31,11 @@ function FolderFetch() {
             console.log('error');
             alert('もう一度送信してください🙇')
         }
+        
     }
     return (
-        <SidebarForm handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } test={ 'test' }/>
+        <SidebarForm handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
     );
 }
 
-export default FolderFetch;
+export default SidebarFormContainer;
