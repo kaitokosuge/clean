@@ -11,10 +11,12 @@ class ArticleController extends Controller
 {
     public function store(Request $request, Article $article, Folder $folder)
     {
-        // dd($request);
-        $input = $request->all();
-        $article->folder_id = $folder->key;
+        $article->url = $request->url;
+        $article->folder_id = $request->key;
+        $article->title = $request->title;
+        $article->image = $request->image;
+        $article->description = $request->description;
         $article->user_id = \Auth::id();
-        $article->fill($input)->save();
+        $article->save();
     }
 }

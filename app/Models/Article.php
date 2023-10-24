@@ -10,8 +10,8 @@ class Article extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'memo',
-        'img',
+        'description',
+        'image',
         'url',
         'user_id',
         'folder_id',

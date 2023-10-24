@@ -17,32 +17,12 @@ class ArticleSeeder extends Seeder
     public function run()
     {
         DB::table('articles')->insert([
-            'title' => 'jsのここが楽しい1000選',
-            'user_id' => 1,
-            'folder_id' => 1,
-            'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/pen.png',
-            'memo' => '後で読もうな',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        DB::table('articles')->insert([
-            'title' => 'reactのここが楽しい1000選',
-            'user_id' => 1,
-            'folder_id' => 1,
-            'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/tony.png',
-            'memo' => 'react始めたい人に共有用',
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        DB::table('articles')->insert([
             'title' => 'Inertiaしか勝たん♡',
             'user_id' => 1,
-            'folder_id' => 2,
+            'folder_id' => 1,
             'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/tonr.png',
-            'memo' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -51,8 +31,8 @@ class ArticleSeeder extends Seeder
             'user_id' => 1,
             'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/ton.png',
-            'memo' => 'Laravel始めたい人にまずお勧めする記事',
+            'image' => 'https://kaiton-blog.space/img/ton.png',
+            'description' => 'Laravel始めたい人にまずお勧めする記事',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -61,28 +41,28 @@ class ArticleSeeder extends Seeder
             'user_id' => 1,
             'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/tonp.png',
-            'memo' => '業務用',
+            'image' => 'https://kaiton-blog.space/img/tonp.png',
+            'description' => '業務用',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
         DB::table('articles')->insert([
-            'title' => 'react async crud',
+            'title' => 'バイトのGoogleカレンダー',
             'user_id' => 1,
-            'folder_id' => 3,
+            'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/ton.png',
-            'memo' => '非同期のクラッドを作る',
+            'image' => 'https://kaiton-blog.space/img/tonp.png',
+            'description' => '業務用',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
         DB::table('articles')->insert([
-            'title' => 'react component',
+            'title' => 'バイトのGoogleカレンダー',
             'user_id' => 1,
             'folder_id' => 3,
             'url' => 'https://kaiton-blog.space',
-            'img' => 'https://kaiton-blog.space/img/ton.png',
-            'memo' => 'コンポーネントに切り分ける最適解',
+            'image' => 'https://kaiton-blog.space/img/tonp.png',
+            'description' => '業務用',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
