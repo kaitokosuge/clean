@@ -19,42 +19,42 @@ function Index(props) {
         rgb:'10,250,255,255',
         updated_at:'just now!!!'
     })
-    const handleCreateFolder = async (e) => {
-        e.preventDefault();
-        let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
-        try {
-            const response = await fetch('/folder',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrf_token,
-                },
-                //folderのオブジェクトをjsonに変換して送る
-                body: JSON.stringify(data),
-            })
-            if (response.ok) {
-                await getFolders();
-            } else {
-              console.log('error-json')
-              alert('ページを再読み込みし、もう一度送信してください🙇')
-            }
-        } catch (error) {
-            console.log('async-error')
-            alert('もう一度送信してください🙇')
-        }
-    }
-    const getFolders = async () => {
-        return await fetch("/get/folders")
-        .then(response => response.json())
-        .then(data => {setIndexFolders(data.folders)})
-        .catch(error => console.error('Error fetching folders', error))
-    }
-    useEffect(() =>{
-        fetch("/get/folders")
-        .then(response => response.json())
-        .then(data => {setIndexFolders(data.folders)})
-        .catch(error => console.error('Error fetching folders', error))
-    },[])
+    // const handleCreateFolder = async (e) => {
+    //     e.preventDefault();
+    //     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+    //     try {
+    //         const response = await fetch('/folders',{
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'X-CSRF-TOKEN': csrf_token,
+    //             },
+    //             //folderのオブジェクトをjsonに変換して送る
+    //             body: JSON.stringify(data),
+    //         })
+    //         if (response.ok) {
+    //             await getFolders();
+    //         } else {
+    //           console.log('error-json')
+    //           alert('ページを再読み込みし、もう一度送信してください🙇')
+    //         }
+    //     } catch (error) {
+    //         console.log('async-error')
+    //         alert('もう一度送信してください🙇')
+    //     }
+    // }
+    // const getFolders = async () => {
+    //     return await fetch("/get/folders")
+    //     .then(response => response.json())
+    //     .then(data => {setIndexFolders(data.folders)})
+    //     .catch(error => console.error('Error fetching folders', error))
+    // }
+    // useEffect(() =>{
+    //     fetch("/get/folders")
+    //     .then(response => response.json())
+    //     .then(data => {setIndexFolders(data.folders)})
+    //     .catch(error => console.error('Error fetching folders', error))
+    // },[])
     
     const [isHovered, setIsHovered] = useState(false);
 
