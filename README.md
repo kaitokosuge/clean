@@ -4,7 +4,9 @@
 <strong>アプリ概要</strong>
 coming soon
 
-<strong>フロントエンド</strong>
+<h2>フロントエンド</h2>
+
+<strong>使用技術</strong>
 <ul>
     <li>React</li>
     <li>Tailwindcss</li>
