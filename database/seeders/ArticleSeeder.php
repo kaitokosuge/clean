@@ -18,6 +18,7 @@ class ArticleSeeder extends Seeder
     {
         DB::table('articles')->insert([
             'title' => 'jsのここが楽しい1000選',
+            'user_id' => 1,
             'folder_id' => 1,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/pen.png',
@@ -27,6 +28,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'reactのここが楽しい1000選',
+            'user_id' => 1,
             'folder_id' => 1,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/tony.png',
@@ -36,6 +38,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
             'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/tonr.png',
@@ -45,6 +48,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'Laravelを始めよう1',
+            'user_id' => 1,
             'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/ton.png',
@@ -54,6 +58,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'バイトのGoogleカレンダー',
+            'user_id' => 1,
             'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/tonp.png',
@@ -63,6 +68,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'react async crud',
+            'user_id' => 1,
             'folder_id' => 3,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/ton.png',
@@ -72,6 +78,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([
             'title' => 'react component',
+            'user_id' => 1,
             'folder_id' => 3,
             'url' => 'https://kaiton-blog.space',
             'img' => 'https://kaiton-blog.space/img/ton.png',

@@ -13,14 +13,8 @@ class ArticleController extends Controller
     {
         // dd($request);
         $input = $request->all();
-        $article->folder_id = $folder->id;
-        $requestImage = $request->file('uploadfile');
-        // dd($requestImage);
-        if (isset($requestImage)) { //画像ファイルが送られた時だけ処理が実行される
-            $image_url = Cloudinary::upload($requestImage->getRealPath())->getSecurePath();
-            $input += ['img' => $image_url];
-        }
-        // dd($input);
+        $article->folder_id = $folder->key;
+        $article->user_id = \Auth::id();
         $article->fill($input)->save();
     }
 }

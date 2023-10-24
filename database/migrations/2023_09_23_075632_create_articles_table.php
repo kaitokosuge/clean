@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->text('memo')->nullable();
             $table->foreignId('folder_id')->constrained();
+            $table->foreignId('user_id')->conatrained();
             $table->timestamps();
         });
     }

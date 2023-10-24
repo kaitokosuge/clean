@@ -13,6 +13,7 @@ class Article extends Model
         'memo',
         'img',
         'url',
+        'user_id',
         'folder_id',
     ];
     public function folder()
