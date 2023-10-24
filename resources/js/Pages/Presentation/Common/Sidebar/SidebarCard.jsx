@@ -8,7 +8,7 @@ function SidebarCard() {
         isHover(!hover);
     }
     return (
-        <div onMouseEnter={handleHover} onMouseLeave={handleHover} className={ hover == true ?'bg-colorfull w-full rounded-[20px] p-5 pt-10 pb-20 mt-[-250px] duration-300 overflow-scroll h-[400px]' : 'bg-colorfull w-full rounded-[20px] p-5 pt-10 pb-20 mt-[25px] h-[400px] duration-700'}>
+        <div onMouseEnter={handleHover} onMouseLeave={handleHover} className={ hover == true ? 'bg-colorfull w-[200%] rounded-[20px] p-5 pt-10 pb-20 mt-[-250px] duration-300 overflow-scroll h-[400px]' : 'w-[100%] bg-colorfull w-full rounded-[20px] p-5 pt-10 pb-20 mt-[25px] h-[400px] duration-700'}>
             <ul>
                 <li className="p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200 font-bold text-2xl"><a href=""><LockOutlinedIcon className='mr-[5px]' fontSize='small'/>top </a></li>
                 <li className="p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200 font-bold text-2xl"><a href=""><LockOutlinedIcon className='mr-[5px]' fontSize='small'/>profile </a></li>

@@ -1,8 +1,7 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState , useEffect } from 'react';
 
-function SidebarNav(props) {
-    const { folders } = props;
+function SidebarNav({ folders }) {
     console.log('sn.jsx folders', folders)
     return (
         <div className="w-full h-[80%]">
@@ -10,7 +9,7 @@ function SidebarNav(props) {
                 <ul>
                     {folders.map((folder) => (
                         <>
-                            <li className="p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200"><a href="" className='flex items-center'><LockOutlinedIcon className='mr-[5px]' fontColor='blue' fontSize='small'/><span className='block'>{folder.title}</span></a></li>
+                            <li className="p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200" key={ folder.id }><a href="" className='flex items-center'><LockOutlinedIcon className='mr-[5px]' fontColor='blue' fontSize='small'/><span className='block'>{folder.title}</span></a></li>
                         </>
                     ))}
                 </ul>

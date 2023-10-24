@@ -1,13 +1,12 @@
-import SidebarFormContainer from '@/Pages/Container/SidebarFormContainer';
-import SidebarNavContainer from '@/Pages/Container/SidebarNavContainer';
 import SidebarCard from './SidebarCard';
+import SidebarForm from './SidebarForm';
+import SidebarNav from './SidebarNav';
 
-function Sidebar(props) {
-    const {  } = props;
+function Sidebar({ folders ,formValue, setFormValue , handleFormSubmit ,toast}) {
     return (
         <div className="fixed z-20 w-[18%] min-w-[170px] border-r bg-[#202020] border-zinc-700 h-screen">
-            <SidebarFormContainer />
-            <SidebarNavContainer />
+            <SidebarForm handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <SidebarNav folders={ folders } />
             <SidebarCard />
         </div>
     );

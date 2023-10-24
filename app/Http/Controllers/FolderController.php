@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Folder;
 use Cloudinary;
+use App\Models\User;
 
 class FolderController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Folder/Index')->with(['folders' => Folder::with('articles')->orderBy('updated_at', 'DESC')->get()]);
+        $login_user_id = \Auth::user()->id;
+        return Inertia::render(
+            'Container/SidebarContainer'
+        )->with(['user' => User::with('folders')->where("id", $login_user_id)->first()]);
     }
     public function show($key)
     {
@@ -32,9 +36,9 @@ class FolderController extends Controller
     }
     public function getFolders()
     {
-        $folders = Folder::orderBy('updated_at', 'DESC')->get();
+        // $user = \Auth::user()->with('folders');
         return response()->json([
-            'folders' => $folders,
+            'user' => $user,
         ]);
     }
     public function getArticles(Folder $folder)
