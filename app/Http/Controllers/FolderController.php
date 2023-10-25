@@ -15,7 +15,7 @@ class FolderController extends Controller
         $login_user_id = \Auth::user()->id;
         return Inertia::render(
             'Container/SidebarContainer'
-        )->with(['user' => User::with('folders')->where("id", $login_user_id)->first()]);
+        )->with(['user' => User::with('folders')->with('articles')->where("id", $login_user_id)->first()]);
     }
     public function show($key)
     {
@@ -24,14 +24,8 @@ class FolderController extends Controller
     }
     public function store(Request $request, Folder $folder)
     {
-        // dd($request);
         $input = $request->all();
         $folder->user_id = \Auth::id();
-        // if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
-        //     $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        //     dd($image_url);
-        //     $input += ['image' => $image_url];
-        // }
         $folder->fill($input)->save();
     }
     public function getFolders()

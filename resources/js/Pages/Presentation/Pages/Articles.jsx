@@ -2,20 +2,16 @@ import { useState } from 'react';
 import ArticlesContent from './ArticlesContent';
 
 
-function Articles() {
+function Articles({ articles ,folders ,handleFormSubmit , setFormValue }) {
 
     return (
-        <div className="w-[70%] mt-10 ml-[22%] pb-[250px]">
+        <div className="w-[70%] pt-10 ml-[22%] pb-[250px]">
             <ul>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
-                <ArticlesContent/>
+                {articles.map((article) => (
+                    <>
+                        <ArticlesContent article={ article } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+                    </>
+                ))}
             </ul>
         </div>
     );
