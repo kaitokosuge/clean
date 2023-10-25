@@ -2,7 +2,7 @@ import SidebarCard from './SidebarCard';
 import SidebarForm from './SidebarForm';
 import SidebarNav from './SidebarNav';
 
-function Sidebar({ folders ,formValue, setFormValue , handleFormSubmit ,toast}) {
+function Sidebar({ folders , setFormValue , handleFormSubmit}) {
     return (
         <div className="fixed z-20 w-[18%] min-w-[170px] border-r bg-[#202020] border-zinc-700 h-screen">
             <SidebarForm handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
