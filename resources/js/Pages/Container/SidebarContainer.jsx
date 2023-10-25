@@ -2,6 +2,7 @@ import { useState , useEffect } from "react";
 import Footer from "../Presentation/Common/Footer/Footer";
 import Header from "../Presentation/Common/Header/Header";
 import Sidebar from "../Presentation/Common/Sidebar/Sidebar";
+import Articles from "../Presentation/Pages/Articles";
 
 
 function SidebarContainer({ user }) {
@@ -37,6 +38,7 @@ function SidebarContainer({ user }) {
         <>
             <Header name={user.name}/>
             <Sidebar folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue } formValue={ formValue } />
+            <Articles articles={ user.articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );
