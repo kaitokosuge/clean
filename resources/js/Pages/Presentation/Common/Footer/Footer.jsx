@@ -22,12 +22,12 @@ function Footer({ handleArticleFormSubmit, setFormArticleValue ,folders ,handleF
                         <button type="submit" className="pointer z-30 text-white border  border-gray-600 rounded-md px-[15px] py-[2px] absolute right-[9%] top-[40px] duration-200 hover:bg-sky-900">▷</button>
                     </form>
                     {folders.map(( folder ) => (
-                        <>
-                        <div className="block mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
-                            <input className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.title} id={folder.id}/>
-                            <label className="ml-[8px] block w-full"for={folder.id}>{folder.title}</label>
+                        <div key={folder.key}>
+                            <div className="block mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
+                                <input className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.title} id={folder.id}/>
+                                <label className="ml-[8px] block w-full"for={folder.id}>{folder.title}</label>
+                            </div>
                         </div>
-                        </>
                     )
                     )}
                 </div>  

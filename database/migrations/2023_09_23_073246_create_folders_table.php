@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('key');
             $table->string('title');
-            $table->string('image')->default('https://kaiton-blog.space/img/tony.png');
             $table->foreignId('user_id')->nullable();
-            $table->string('rgb')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
