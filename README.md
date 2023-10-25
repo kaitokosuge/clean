@@ -1,4 +1,4 @@
-<a href="https://kaiton-blog.space/">kaitokosuge</a>
+author<a href="https://kaiton-blog.space/">kaitokosuge</a>
 <h1>Clean</h1>
 
 <strong>アプリ概要</strong>
