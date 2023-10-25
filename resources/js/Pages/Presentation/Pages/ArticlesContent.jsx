@@ -34,9 +34,9 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
                 </div>
                 <div onMouseLeave={handleToFolderHover} className={ isToFolderHover == true ? "opacity-100 visible w-[50%] relative top-[-50px] h-[400px] bg-zinc-900 rounded-xl p-5 z-100 duration-300 overflow-scroll" : "relative top-[-50px] opacity-0 duration-500 invisible w-0 h-0" }>
                     <p className={ isToFolderHover == true ? 'text-gray-500 font-bold opacity-100 visible': 'text-black font-bold opacity-0 duration-300 invisible'}>select folder</p>
-                    <form onSubmit={handleFormSubmit} className="mt-5">
+                    <form onSubmit={handleFormSubmit} className="mt-[5px]">
                         <input onChange={(e) => setFormValue({title: e.target.value , key:crypto.randomUUID()})} name="title" type="text" placeholder="add folder" className="relative outline-none rounded-[5px] w-full bg-[#202020] pr-[50px] duration-500 focus:border-sky-900 focus:ring-sky-900 focus:duration-500" />
-                        <button type="submit" className="pointer z-30 text-white border  border-gray-600 rounded-md px-[15px] py-[2px] absolute right-[5%] top-[70px] duration-200 hover:bg-sky-900">▷</button>
+                        <button type="submit" className="pointer z-30 text-white border  border-gray-600 rounded-md px-[15px] py-[2px] absolute right-[5%] top-[55px] duration-200 hover:bg-sky-900">▷</button>
                     </form>
                     {folders.map(( folder ) => (
                         <>

@@ -5,7 +5,7 @@ import ArticlesContent from './ArticlesContent';
 function Articles({ articles ,folders ,handleFormSubmit , setFormValue }) {
 
     return (
-        <div className="w-[70%] pt-10 ml-[22%] pb-[250px]">
+        <div className="w-[70%] pt-10 ml-[22%]">
             <ul>
                 {articles.map((article) => (
                     <>
