@@ -25,6 +25,7 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
                             <div onClick={handleHover} className="relative z-90 w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>Log</p></div>
                             <div onClick={handleToFolderHover} className="w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>folder</p></div>
                             <img className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/pen.png"/>
+                            
                         </div>
                     </div>
                 </a>

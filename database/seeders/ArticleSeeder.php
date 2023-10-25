@@ -66,5 +66,65 @@ class ArticleSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        DB::table('articles')->insert([
+            'title' => 'Inertiaしか勝たん♡',
+            'user_id' => 1,
+            'folder_id' => 1,
+            'url' => 'https://kaiton-blog.space',
+            'image' => 'https://kaiton-blog.space/img/tonr.png',
+            'description' => 'react or vueと何かしらバックエンドフレームワーク始めたい人に共有用',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
