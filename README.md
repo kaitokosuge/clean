@@ -9,6 +9,7 @@ coming soon
 <strong>使用技術</strong>
 <ul>
     <li>React</li>
+    <li>Inertia.js</li>
     <li>Tailwindcss</li>
 </ul>
 
