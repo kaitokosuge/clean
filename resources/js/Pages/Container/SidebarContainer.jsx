@@ -52,7 +52,8 @@ function SidebarContainer({ user }) {
                 body: JSON.stringify(formArticleValue),
             })
             if(res.ok){
-                setArticles([ formArticleValue, ...user.articles ])
+                // setArticles([ formArticleValue, ...user.articles ])
+                await getArticles();
             } else{
                 alert('ページを再読み込みし、もう一度送信してください')
                 console.log('no-ok')
@@ -61,6 +62,12 @@ function SidebarContainer({ user }) {
             console.log('error');
             alert('もう一度送信してください🙇🙇')
         }
+    }
+    const getArticles = async () => {
+        return await fetch('/get/articles')
+                        .then(res => res.json())
+                        .then(data => {setArticles(data.articles)})
+                        .catch(error => alert('ページをリロードしてください🙇'))
     }
     return (
         <>

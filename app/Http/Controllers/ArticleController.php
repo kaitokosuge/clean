@@ -40,4 +40,12 @@ class ArticleController extends Controller
         $article->user_id = \Auth::id();
         $article->save();
     }
+    public function getArticles()
+    {
+        $user = \Auth::user();
+        $articles = $user->articles()->get();
+        return response()->json([
+            'articles' => $articles,
+        ]);
+    }
 }

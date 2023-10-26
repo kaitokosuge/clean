@@ -30,7 +30,6 @@ class FolderController extends Controller
     }
     public function getFolders()
     {
-        // $user = \Auth::user()->with('folders');
         return response()->json([
             'user' => $user,
         ]);
