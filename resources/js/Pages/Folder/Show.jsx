@@ -59,9 +59,6 @@ function Show({folder , folders}) {
         .then(data => {setIndexFolder(data.folder.articles)})
         .catch(error => console.error('Error fetching folders', error))
     }
-    const handleSendImage = () =>{
-
-    }
     return (
         <>
         <div className="flex justify-between">
