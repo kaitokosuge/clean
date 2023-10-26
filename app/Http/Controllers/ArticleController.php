@@ -32,11 +32,10 @@ class ArticleController extends Controller
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', $url);
         $crawler = new Crawler($response->getBody()->getContents());
-        $title_text = $crawler->filter('meta[property="og:title"]')->attr('content');
-        dd($title_text);
+        $ogpTitle = $crawler->filter('meta[property="og:title"]')->attr('content');
         $article->title = $ogpTitle;
-        $article->image = $ogpImage;
-        $article->description = $ogpDescription;
+        // $article->image = $ogpImage;
+        // $article->description = $ogpDescription;
         $article->url = $url;
         $article->user_id = \Auth::id();
         $article->save();
