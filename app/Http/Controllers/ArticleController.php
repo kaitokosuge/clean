@@ -33,9 +33,13 @@ class ArticleController extends Controller
         $response = $client->request('GET', $url);
         $crawler = new Crawler($response->getBody()->getContents());
         $ogpTitle = $crawler->filter('meta[property="og:title"]')->attr('content');
+        $ogpImage = $crawler->filter('meta[property="og:image"]')->attr('content');
+        $ogpDescription = $crawler->filter('meta[property="og:description"]')->attr('content');
+        $ogpAuthor = $crawler->filter('meta[property="og:site_name"]')->attr('content');
         $article->title = $ogpTitle;
-        // $article->image = $ogpImage;
-        // $article->description = $ogpDescription;
+        $article->image = $ogpImage;
+        $article->description = $ogpDescription;
+        $article->autor = $ogpAuthor;
         $article->url = $url;
         $article->user_id = \Auth::id();
         $article->save();
