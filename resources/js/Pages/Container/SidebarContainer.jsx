@@ -52,7 +52,6 @@ function SidebarContainer({ user }) {
                 body: JSON.stringify(formArticleValue),
             })
             if(res.ok){
-                // setArticles([ formArticleValue, ...user.articles ])
                 await getArticles();
             } else{
                 alert('ページを再読み込みし、もう一度送信してください')
