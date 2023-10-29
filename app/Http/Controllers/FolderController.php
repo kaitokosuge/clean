@@ -17,28 +17,10 @@ class FolderController extends Controller
             'Container/SidebarContainer'
         )->with(['user' => User::with('folders')->with('articles')->where("id", $login_user_id)->first()]);
     }
-    public function show($key)
-    {
-        $folder = Folder::where('key', $key)->firstOrFail();
-        return Inertia::render('Folder/Show')->with(['folder' => $folder->load('articles'), 'folders' => Folder::with('articles')->orderBy('updated_at', 'DESC')->get()]);
-    }
     public function store(Request $request, Folder $folder)
     {
         $input = $request->all();
         $folder->user_id = \Auth::id();
         $folder->fill($input)->save();
-    }
-    public function getFolders()
-    {
-        return response()->json([
-            'user' => $user,
-        ]);
-    }
-    public function getArticles(Folder $folder)
-    {
-        $fetchfolder = Folder::where('id', $folder->id)->with('articles')->firstOrFail();
-        return response()->json([
-            'folder' => $fetchfolder,
-        ]);
     }
 }
