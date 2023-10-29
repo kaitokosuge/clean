@@ -18,35 +18,14 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/', function () {
-//     return Inertia::render('Index');
-// });
-Route::get('/get/folders', [FolderController::class, 'getFolders']);
-
-// Route::get('/', [FolderController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('/', [FolderController::class, 'index']);
     Route::post('/folder', [FolderController::class, 'store']);
-    Route::get('/folder/{key}', [FolderController::class, 'show']);
-    // Route::get('/create',[FolderController::class, 'create']);
     Route::post('/article', [ArticleController::class, 'store']);
-    // Route::get('/get/articles', [ArticleController::class, 'getArticles']);
-    //folder（内の記事）取得API
-    // Route::get('/get/folder/{folder}', [FolderController::class, 'getArticles']);
-
     Route::get('/get/articles', [ArticleController::class, 'getArticles']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

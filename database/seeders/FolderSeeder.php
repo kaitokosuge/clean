@@ -24,20 +24,6 @@ class FolderSeeder extends Seeder
             'updated_at' => new DateTime(),
         ]);
         DB::table('folders')->insert([
-            'key' => 'b',
-            'title' => 'levtech-college',
-            'user_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        DB::table('folders')->insert([
-            'key' => 'c',
-            'title' => '生徒共有用',
-            'user_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        DB::table('folders')->insert([
             'key' => 'd',
             'title' => 'メンター共有用',
             'user_id' => 2,

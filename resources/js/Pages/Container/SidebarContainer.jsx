@@ -8,7 +8,6 @@ import Articles from "../Presentation/Pages/Articles";
 function SidebarContainer({ user }) {
     console.log('user',user);
     // form送信関連
-    //
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
@@ -34,11 +33,16 @@ function SidebarContainer({ user }) {
         } catch(erros){ 
             console.log('error');
             alert('もう一度送信してください🙇')
-        }
-        
+        }   
     }
     const [ articles , setArticles ] = useState(user.articles);
-    const [ formArticleValue , setFormArticleValue ] = useState();
+    const [ formArticleValue , setFormArticleValue ] = useState({
+        url:"",
+        folder:[],
+    });
+    const handleArticleObj = (e) => {
+        setFormArticleValue((prev) => ({...prev , [e.target.name]: [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+    }
     const handleArticleFormSubmit = async (e) => {
         e.preventDefault();
         let csrf_token2 = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -52,7 +56,6 @@ function SidebarContainer({ user }) {
                 body: JSON.stringify(formArticleValue),
             })
             if(res.ok){
-                // setArticles([ formArticleValue, ...user.articles ])
                 await getArticles();
             } else{
                 alert('ページを再読み込みし、もう一度送信してください')
@@ -74,7 +77,7 @@ function SidebarContainer({ user }) {
             <Header name={user.name}/>
             <Sidebar folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue } />
             <Articles  articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
-            <Footer handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );
 }

@@ -15,18 +15,18 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
     return (
         <>
             <li className="relative">
-                <a href={article.url} className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-sky-950 hover:duration-200">
+                <a href={article.url} className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
                     <img src={`${article.image}`}className="w-[180px] h-[100px] object-cover rounded-md"/>
                     <div className="ml-5">
-                        <p className="font-bold text-xl">{article.title}</p>
-                        <p className="text-xs mt-1">{article.url}</p>
-                        <p className="mt-1 text-xs">{article.description}</p>
-                        <div className="flex mt-1">
+                        <p className="font-bold text-2xl">{article.title}</p>
+                        <p className="text-xs mt-1">link:{article.url}</p>
+                        <p className="mt-1 text-xs">desc:{article.description}</p>
+                        <p className="mt-1 text-xs">site:{article.site_name}</p>
+                        {/* <div className="flex mt-1">
                             <div onClick={handleHover} className="relative z-90 w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>Log</p></div>
                             <div onClick={handleToFolderHover} className="w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>folder</p></div>
                             <img className="w-[30px] h-[30px] rounded-full mr-1" src="https://kaiton-blog.space/img/pen.png"/>
-                            
-                        </div>
+                        </div> */}
                     </div>
                 </a>
                 <div onMouseLeave={handleHover} className={ isHover == true ? "opacity-100 visible w-full h-[400px] relative top-[-50px] bg-white rounded-xl p-10 z-70 duration-300" : "relative top-[-50px] opacity-0 duration-500 invisible w-0 h-0" }>

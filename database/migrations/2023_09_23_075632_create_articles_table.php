@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable()->default('https://kaiton-blog.space/img/ton.png');
             $table->string('url');
             $table->text('description')->nullable();
-            $table->foreignId('folder_id')->nullable()->constrained();
+            $table->string('site_name')->nullable();
             $table->foreignId('user_id')->conatrained();
             $table->timestamps();
         });
