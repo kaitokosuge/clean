@@ -16,8 +16,8 @@ class Article extends Model
         'user_id',
         'folder_id',
     ];
-    public function folder()
+    public function folders()
     {
-        return $this->belongsTo(Folder::class);
+        return $this->belongsToMany(Folder::class);
     }
 }

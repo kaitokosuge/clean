@@ -8,7 +8,6 @@ import Articles from "../Presentation/Pages/Articles";
 function SidebarContainer({ user }) {
     console.log('user',user);
     // form送信関連
-    //
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
@@ -34,11 +33,13 @@ function SidebarContainer({ user }) {
         } catch(erros){ 
             console.log('error');
             alert('もう一度送信してください🙇')
-        }
-        
+        }   
     }
     const [ articles , setArticles ] = useState(user.articles);
-    const [ formArticleValue , setFormArticleValue ] = useState();
+    const [ formArticleValue , setFormArticleValue ] = useState({
+        url:"",
+        folder:[],
+    });
     const handleArticleFormSubmit = async (e) => {
         e.preventDefault();
         let csrf_token2 = document.head.querySelector('meta[name="csrf-token"]').content;
