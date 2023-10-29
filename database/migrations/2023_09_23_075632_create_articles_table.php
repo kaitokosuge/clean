@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('url');
             $table->text('description')->nullable();
             $table->string('site_name')->nullable();
-            $table->foreignId('folder_id')->nullable()->constrained();
             $table->foreignId('user_id')->conatrained();
             $table->timestamps();
         });

@@ -12,12 +12,12 @@ class Article extends Model
         'title',
         'description',
         'image',
+        'site_name',
         'url',
         'user_id',
-        'folder_id',
     ];
     public function folders()
     {
-        return $this->belongsToMany(Folder::class);
+        return $this->belongsToMany(Folder::class, 'article_folder', 'article_id', 'folder_key');
     }
 }

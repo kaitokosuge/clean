@@ -19,7 +19,6 @@ class ArticleSeeder extends Seeder
         DB::table('articles')->insert([
             'title' => 'Laravelを始めよう1',
             'user_id' => 1,
-            'folder_id' => 2,
             'url' => 'https://kaiton-blog.space',
             'image' => 'https://kaiton-blog.space/img/ton.png',
             'description' => 'Laravel始めたい人にまずお勧めする記事',

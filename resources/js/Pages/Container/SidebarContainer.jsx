@@ -40,6 +40,9 @@ function SidebarContainer({ user }) {
         url:"",
         folder:[],
     });
+    const handleArticleObj = (e) => {
+        setFormArticleValue((prev) => ({...prev , [e.target.name]: [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+    }
     const handleArticleFormSubmit = async (e) => {
         e.preventDefault();
         let csrf_token2 = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -74,7 +77,7 @@ function SidebarContainer({ user }) {
             <Header name={user.name}/>
             <Sidebar folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue } />
             <Articles  articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
-            <Footer handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );
 }

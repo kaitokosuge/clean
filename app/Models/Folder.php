@@ -13,13 +13,11 @@ class Folder extends Model
         'id',
         'key',
         'title',
-        'image',
         'user_id',
-        'rgb',
     ];
     public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Article::class);
     }
     public function user()
     {

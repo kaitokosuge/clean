@@ -10,9 +10,9 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class ArticleController extends Controller
 {
-    public function store(Request $request, Article $article, Folder $folder)
+    public function store(Request $request, Article $article,)
     {
-        dd($request);
+        // dd($request);
         $url = $request->url;
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', $url);
@@ -26,6 +26,7 @@ class ArticleController extends Controller
         $ogpAuthor = $crawler->filter('meta[property="og:site_name"]')->attr('content');
 
 
+
         $article->title = $ogpTitle;
         $article->image = $ogpImage;
         $article->description = $ogpDescription;
@@ -33,6 +34,16 @@ class ArticleController extends Controller
         $article->url = $url;
         $article->user_id = \Auth::id();
         $article->save();
+
+        // dd($article->id);
+        $folders = $request->folder;
+        // dd($folders);
+        foreach ($folders as $folder) {
+            // dd($folder);
+            $article->folders()->attach([
+                'folder_key' => $folder,
+            ]);
+        }
     }
 
     public function getArticles()
