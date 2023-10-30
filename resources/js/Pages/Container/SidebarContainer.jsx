@@ -41,7 +41,14 @@ function SidebarContainer({ user }) {
         folder:[],
     });
     const handleArticleObj = (e) => {
-        setFormArticleValue((prev) => ({...prev , [e.target.name]: [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+        // setFormArticleValue((prev) => ({...prev , [e.target.name] : [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+        setFormArticleValue((prev) => {
+            if(e.target.name === 'folder'){
+                return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+            } else {
+                return { ...prev, [e.target.name]: e.target.value };
+            }
+        })
     }
     const handleArticleFormSubmit = async (e) => {
         e.preventDefault();
