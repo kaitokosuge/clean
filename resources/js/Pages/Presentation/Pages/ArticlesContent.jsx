@@ -15,7 +15,7 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
     return (
         <>
             <li className="relative">
-                <a href={article.url} className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
+                <a href={article.url} target="_blank" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
                     <img src={`${article.image}`}className="w-[200px] h-[110px] object-cover rounded-md"/>
                     <div className="ml-5">
                         <p className="font-bold text-2xl">{article.title}</p>
