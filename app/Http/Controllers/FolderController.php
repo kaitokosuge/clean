@@ -23,4 +23,9 @@ class FolderController extends Controller
         $folder->user_id = \Auth::id();
         $folder->fill($input)->save();
     }
+
+    public function getSelectFolder($key)
+    {
+        dd($key);
+    }
 }
