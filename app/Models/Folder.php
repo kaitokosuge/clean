@@ -16,9 +16,9 @@ class Folder extends Model
         'title',
         'user_id',
     ];
-    public $timestamps = false;
+    // public $timestamps = false;
     public $primaryKey = 'id';
-    public $incrementing = false;
+    // public $incrementing = false;
     protected $keyType = 'string';
 
     public function articles()
