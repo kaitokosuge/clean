@@ -28,7 +28,7 @@ class FolderController extends Controller
     {
         // dd(\Auth::user()->folders->where('key', $key)->first()->articles()->get());
         // $articles = \Auth::user()->folders->where('key', $key)->first()->articles()->get();
-        $articles = $folder->articles()->get();
+        $articles = $folder->articles()->orderBy('updated_at', 'DESC')->get();
         // dd($articles);
         return response()->json([
             'selectFolderArticles' => $articles,
