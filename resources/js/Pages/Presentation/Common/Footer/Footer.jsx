@@ -11,7 +11,7 @@ function Footer({ handleArticleFormSubmit, handleArticleObj ,folders ,formArticl
         <div className="w-[82%] min-w-[50%] h-[150px] fixed bottom-0 z-10 right-0 bg-shadow">
             <div className="flex items-center">
                 <form onSubmit={handleArticleFormSubmit} className="block w-full flex items-center mt-5 relative">
-                    <input onChange={ handleArticleObj } name="url" type='text' placeholder="add article" value={formArticleValue.url}className="outline-none mt-[40px] ml-[150px] w-[60%] min-w-[200px] h-[60px] py-[5px] px-[10px] rounded-md bg-[#202020] duration-500 focus:border-sky-900 focus:ring-sky-900 focus:duration-500"/>
+                    <input onChange={ handleArticleObj } name="url" type='text' placeholder="add article" value={formArticleValue.url} autocomplete='off'className="outline-none mt-[40px] ml-[150px] w-[60%] min-w-[200px] h-[60px] py-[5px] px-[10px] rounded-md bg-[#202020] duration-500 focus:border-sky-900 focus:ring-sky-900 focus:duration-500"/>
                     {folders.map(( folder ) => (
                         <div key={folder.id}>
                             <div className="block mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
