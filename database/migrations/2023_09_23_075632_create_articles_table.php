@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->text('title')->nullable();
             $table->string('image')->nullable()->default('https://kaiton-blog.space/img/ton.png');
-            $table->string('url');
+            $table->text('url');
             $table->text('description')->nullable();
             $table->string('site_name')->nullable();
             $table->foreignId('user_id')->conatrained();

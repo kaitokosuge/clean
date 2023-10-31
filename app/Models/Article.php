@@ -18,6 +18,6 @@ class Article extends Model
     ];
     public function folders()
     {
-        return $this->belongsToMany(Folder::class, 'article_folder', 'article_id', 'folder_key');
+        return $this->belongsToMany(Folder::class, 'article_folder', 'article_id', 'folder_id');
     }
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Folder extends Model
 {
@@ -11,14 +13,19 @@ class Folder extends Model
 
     protected $fillable = [
         'id',
-        'key',
         'title',
         'user_id',
     ];
+    public $timestamps = false;
+    public $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     public function articles()
     {
-        return $this->belongsToMany(Article::class);
+        return $this->belongsToMany(Article::class, 'article_folder', 'folder_id', 'article_id');
     }
+
     public function user()
     {
         return $this->belongsTo(User::class);

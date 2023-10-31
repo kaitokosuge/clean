@@ -41,7 +41,14 @@ function SidebarContainer({ user }) {
         folder:[],
     });
     const handleArticleObj = (e) => {
-        setFormArticleValue((prev) => ({...prev , [e.target.name]: [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+        // setFormArticleValue((prev) => ({...prev , [e.target.name] : [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
+        setFormArticleValue((prev) => {
+            if(e.target.name === 'folder'){
+                return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+            } else {
+                return { ...prev, [e.target.name]: e.target.value };
+            }
+        })
     }
     const handleArticleFormSubmit = async (e) => {
         e.preventDefault();
@@ -63,7 +70,7 @@ function SidebarContainer({ user }) {
             }
         } catch(erros){ 
             console.log('error');
-            alert('もう一度送信してください🙇🙇')
+            alert('もう一度送信してください🙇🙇🙇')
         }
     }
     const getArticles = async () => {
@@ -71,11 +78,20 @@ function SidebarContainer({ user }) {
                         .then(res => res.json())
                         .then(data => {setArticles(data.articles)})
                         .catch(error => alert('ページをリロードしてください🙇'))
-    }
+    };
+
+    const handleSelectFolder = async (id) => {
+        // console.log('key',key);
+        return await fetch(`/folders/${id}`)
+            .then(res => res.json())
+            .then(data => {setArticles(data.selectFolderArticles)})
+            .then(console.log('articles',articles))
+            .catch(error =>  console.log('ページをリロードしてください🙇'));
+    };
     return (
         <>
             <Header name={user.name}/>
-            <Sidebar folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue } />
+            <Sidebar handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue } />
             <Articles  articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
