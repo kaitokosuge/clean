@@ -11,10 +11,11 @@ function SidebarContainer({ user }) {
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
-    const [ formValue , setFormValue ] = useState({
+    const [ formValue , setFormValue ] = useState();
+    const [ value , setValue ] = useState({
         title:'',
-        id:''
-    });
+        id:'',
+    })
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -28,8 +29,8 @@ function SidebarContainer({ user }) {
                 body: JSON.stringify(formValue),
             })
             if(res.ok){
-                setFolders([ formValue, ...user.folders ])
-                setFormValue({
+                setFolders([ formValue, ...folders ])
+                setValue({
                     title:'',
                     id:'',
                 });
@@ -101,7 +102,7 @@ function SidebarContainer({ user }) {
     return (
         <>
             <Header name={user.name}/>
-            <Sidebar handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } />
+            <Sidebar value={ value } setValue={ setValue } handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } />
             <Articles  articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } formArticleValue ={ formArticleValue }folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
