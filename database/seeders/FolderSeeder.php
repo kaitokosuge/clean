@@ -16,19 +16,5 @@ class FolderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('folders')->insert([
-            'key' => 'a',
-            'title' => 'JavaScriptの後で読む記事',
-            'user_id' => 1,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
-        DB::table('folders')->insert([
-            'key' => 'd',
-            'title' => 'メンター共有用',
-            'user_id' => 2,
-            'created_at' => new DateTime(),
-            'updated_at' => new DateTime(),
-        ]);
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('article_folder', function (Blueprint $table) {
             $table->id();
             $table->foreignId('article_id');
-            $table->string('folder_key');
+            $table->text('folder_id');
         });
     }
 

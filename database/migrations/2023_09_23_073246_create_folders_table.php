@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('folders', function (Blueprint $table) {
-            $table->id();
-            $table->text('key');
+            // $table->id();
+            $table->string('id')->primary();
             $table->string('title');
             $table->foreignId('user_id')->nullable();
             $table->softDeletes();
