@@ -16,12 +16,14 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
         <>
             <li className="relative">
                 <a href={article.url} target="_blank" className="flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
-                    <img src={`${article.image}`}className="w-[200px] h-[110px] object-cover rounded-md"/>
-                    <div className="ml-5">
-                        <p className="font-bold text-2xl">{article.title}</p>
-                        <p className="text-xs mt-1">link:{article.url}</p>
-                        <p className="mt-1 text-xs">desc:{article.description}</p>
-                        <p className="mt-1 text-xs">site:{article.site_name}</p>
+                    <div className="w-[280px] h-[120px]">
+                        <img src={`${article.image}`} className="w-[100%] h-[100%] block object-cover rounded-md"/>
+                    </div>
+                    <div className="ml-5 limit">
+                        <p className="font-bold text-2xl limit">{article.title}</p>
+                        <p className="text-xs mt-1 limit">🌐link: {article.url}</p>
+                        <p className="mt-1 text-xs limit">📖desc: {article.description}</p>
+                        <p className="mt-1 text-xs limit">👤site: {article.site_name}</p>
                         {/* <div className="flex mt-1">
                             <div onClick={handleHover} className="relative z-90 w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>Log</p></div>
                             <div onClick={handleToFolderHover} className="w-[30px] h-[30px] rounded-full mr-1 bg-white text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-yellow-400 hover:duration-300"><p>folder</p></div>

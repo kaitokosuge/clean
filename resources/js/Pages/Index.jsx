@@ -4,7 +4,7 @@ import SidebarContainer from "./Container/SidebarContainer"
 
 function Index() {
     return (
-        <div>
+        <div className="index">
             <Header />
             <div className="flex">
                 <SidebarContainer />
