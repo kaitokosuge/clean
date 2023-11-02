@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContainerController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/article', [ArticleController::class, 'store']);
     Route::get('/folders/{folder}', [FolderController::class, 'getSelectFolder']);
     Route::get('/get/articles', [ArticleController::class, 'getArticles']);
+
+    Route::get('/top', [ContainerController::class, 'showTop']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
