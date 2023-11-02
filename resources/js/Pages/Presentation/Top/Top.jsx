@@ -2,10 +2,14 @@
 
 
 
-function Top() {
+function Top({ folders }) {
     return (
         <div>
-            Enter
+            {folders.map((folder) => (
+                <>
+                    <p>{folder.title}</p>
+                </>
+            ))}
         </div>
     );
 }
