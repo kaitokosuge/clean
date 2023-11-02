@@ -42,7 +42,7 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
                     </form>
                     {folders.map(( folder ) => (
                         <div key={folder.key}>
-                            <div className="block mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
+                            <div className="mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
                                 <input className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.title} id={folder.id}/>
                                 <label className="ml-[8px] block w-full"for={folder.id}>{folder.title}</label>
                             </div>
