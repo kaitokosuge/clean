@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import Header from '../Presentation/Common/Header/Header';
 
 
 
+function TopContainer({ user }) {
 
-function TopContainer() {
     return (
-        <div>
-            topcontainer
-        </div>
+        <>
+            <Header name={user.name}/>
+        </>
     );
 }
 
