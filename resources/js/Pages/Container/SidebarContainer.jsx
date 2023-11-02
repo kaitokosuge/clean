@@ -7,7 +7,7 @@ import Articles from "../Presentation/Pages/Articles";
 
 function SidebarContainer({ user }) {
     console.log('user',user);
-    // form送信関連
+    console.log('user.articles',user.articles);
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
