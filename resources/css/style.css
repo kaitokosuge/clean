@@ -29,6 +29,12 @@ body {
         background-position: 0%
     }
 }
+.limit{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 h1{
     font-size: 30px;
     font-weight: bold;
