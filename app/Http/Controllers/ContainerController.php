@@ -22,6 +22,6 @@ class ContainerController extends Controller
     {
         return Inertia::render(
             'Container/ProfileContainer'
-        )->with(['user' => $user, 'folders' => $user->folders()->get()]);
+        )->with(['user' => $user, 'folders' => $user->folders()->with('articles')->get()]);
     }
 }
