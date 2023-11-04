@@ -17,7 +17,7 @@ function Footer({ handleArticleFormSubmit, handleArticleObj ,folders ,formArticl
                         <p className="text-zinc-500">select folder</p>
                         {folders.map(( folder ) => (
                             <div key={folder.id}>
-                                <div className="mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200">
+                                <div className={ isHover == true ? "mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200" : "mt-[10px] p-1 rounded-md flex items-center opacity-0"}>
                                     <input onChange = { {handleArticleObj} } name="folder" className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.id} id={folder.id} checked={formArticleValue.folder.includes(folder.id)}/>
                                     <label className="ml-[8px] block w-full" for={folder.id}>{folder.title}</label>
                                 </div>
