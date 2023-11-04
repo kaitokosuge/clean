@@ -1,11 +1,23 @@
 
 
 
-function Profile({ profile }) {
+function Profile({ user , folders }) {
+    console.log('profile',user)
     return (
-        <div>
-            {profile.name}
-        </div>
+        <>
+            <div>
+                {user.name}
+            </div>
+            <div>
+                {folders.map((folder) => (
+                    <>
+                        <p>{folder.title}</p>
+                    </>
+                ))
+
+                }
+            </div>
+        </>
     );
 }
 
