@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/folder', [FolderController::class, 'store']);
     Route::post('/article', [ArticleController::class, 'store']);
     Route::get('/folders/{folder}', [FolderController::class, 'getSelectFolder']);
+    Route::get('/get/folders', [FolderController::class, 'getFolders']);
     Route::get('/get/articles', [ArticleController::class, 'getArticles']);
 
     Route::get('/top', [ContainerController::class, 'showTop']);

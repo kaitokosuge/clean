@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/react'
 
 function Top({ folders }) {
     console.log('top,folders',folders);
+    
     return (
         <div>
             {folders.map((folder) => (

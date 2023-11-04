@@ -23,13 +23,17 @@ class FolderController extends Controller
         $folder->user_id = \Auth::id();
         $folder->fill($input)->save();
     }
-
+    public function getFolders()
+    {
+        $user = \Auth::user();
+        $folders = $user->folders()->get();
+        return response()->json([
+            'folders' => $folders,
+        ]);
+    }
     public function getSelectFolder(Folder $folder)
     {
-        // dd(\Auth::user()->folders->where('key', $key)->first()->articles()->get());
-        // $articles = \Auth::user()->folders->where('key', $key)->first()->articles()->get();
         $articles = $folder->articles()->orderBy('updated_at', 'DESC')->get();
-        // dd($articles);
         return response()->json([
             'selectFolderArticles' => $articles,
         ]);

@@ -22,14 +22,14 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
     }
     return (
         <>
-            <li className="relative">
+            <li className="">
                 <a href={article.url} target="_blank" onMouseEnter={handleLinkHover} onMouseLeave={handleLinkHover}className= "flex w-full p-5 rounded-md duration-200 mt-1 hover:bg-zinc-700 hover:duration-200">
                     <div className="w-[280px] h-[120px]">
                         <img src={`${article.image}`} className="w-[100%] h-[100%] block object-cover rounded-md"/>
                     </div>
                     <div className="ml-5 limit">
                         <p className="font-bold text-2xl limit">{article.title}</p>
-                        <p className="text-xs mt-1 limit">🌐link: {article.url}</p>
+                        <p className="text-xs mt-1 limit">🌐link: <span className="text-gray-400 font-bold">{article.url}</span></p>
                         <p className="mt-1 text-xs limit">📖desc: {article.description}</p>
                         <p className="mt-1 text-xs limit">👤site: {article.site_name}</p>
                         <div className={isLinkHover == true ? "flex duration-300 opacity-100 visible mt-1 justify-end" : "flex justify-end opacity-0 duration-500 invisible" }>
