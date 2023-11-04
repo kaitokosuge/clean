@@ -6,12 +6,12 @@ function Top({ folders }) {
     console.log('top,folders',folders);
     
     return (
-        <div>
+        <div className="pt-10">
             {folders.map((folder) => (
-                <>
+                <div >
                     <Link href={`/profile/${folder.user.id}`}>{folder.user.name}</Link>
                     <p>{folder.title}</p>
-                </>
+                </div>
             ))}
         </div>
     );

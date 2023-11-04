@@ -12,21 +12,37 @@ class ArticleController extends Controller
 {
     public function store(Request $request, Article $article,)
     {
-        // dd($request);
         $url = $request->url;
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', $url);
         $crawler = new Crawler($response->getBody()->getContents());
-        // dd($crawler);
-        $ogpTitle = $crawler->filter('meta[property="og:title"]')->attr('content');
-        // $ogpImage = $crawler->filter('meta[property="og:image"]')->attr('content')->count() > 0
-        //     ? $crawler->filter('meta[property="og:image"]')->attr("content") : '';
-        $ogpImage = $crawler->filter('meta[property="og:image"]')->attr('content');
-        $ogpDescription = $crawler->filter('meta[property="og:description"]')->attr('content');
-        $ogpAuthor = $crawler->filter('meta[property="og:site_name"]')->attr('content');
+        $ogpTitleEl = $crawler->filter('meta[property="og:title"]');
+        if ($ogpTitleEl->count() > 0) {
+            $ogpTitle = $crawler->filter('meta[property="og:title"]')->attr('content');
+        } else {
+            $ogpTitle = $crawler->filter('title')->text();
+        }
 
+        $ogpImageEl = $crawler->filter('meta[property="og:image"]');
+        if ($ogpImageEl->count() > 0) {
+            $ogpImage = $crawler->filter('meta[property="og:image"]')->attr('content');
+        } else {
+            $ogpImage = null;
+        }
 
+        $ogpDescriptionEl = $crawler->filter('meta[property="og:description"]');
+        if ($ogpDescriptionEl->count() > 0) {
+            $ogpDescription = $crawler->filter('meta[property="og:description"]')->attr('content');
+        } else {
+            $ogpDescription = null;
+        }
 
+        $ogpAuthorEl = $crawler->filter('meta[property="og:site_name"]');
+        if ($ogpAuthorEl->count() > 0) {
+            $ogpAuthor = $crawler->filter('meta[property="og:site_name"]')->attr('content');
+        } else {
+            $ogpAuthor = null;
+        }
         $article->title = $ogpTitle;
         $article->image = $ogpImage;
         $article->description = $ogpDescription;
@@ -34,12 +50,8 @@ class ArticleController extends Controller
         $article->url = $url;
         $article->user_id = \Auth::id();
         $article->save();
-
-        // dd($article->id);
         $folders = $request->folder;
-        // dd($folders);
         foreach ($folders as $folder) {
-            // dd($folder);
             $article->folders()->attach([
                 'folder_key' => $folder,
             ]);
