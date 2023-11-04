@@ -1,11 +1,11 @@
+import Profile from "../Presentation/Profile/Profile";
 
 
-
-function ProfileContainer() {
+function ProfileContainer( { user , folders } ) {
     return (
-        <div>
-            Enter
-        </div>
+        <>
+            <Profile user = { user } folders = { folders } />
+        </>
     );
 }
 

@@ -17,4 +17,11 @@ class ContainerController extends Controller
             'Container/TopContainer'
         )->with(['user' => User::where("id", $login_user_id)->first(), 'folders' => Folder::with('user')->get()]);
     }
+    // auth以外のプロフィール
+    public function showProfile(User $user)
+    {
+        return Inertia::render(
+            'Container/ProfileContainer'
+        )->with(['user' => $user, 'folders' => $user->folders()->with('articles')->get()]);
+    }
 }

@@ -6,7 +6,7 @@ import Articles from "../Presentation/Pages/Articles";
 
 
 function SidebarContainer({ user }) {
-    console.log('user',user);
+    console.log('userrrrr',user);
     console.log('user.articles',user.articles);
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
@@ -29,7 +29,8 @@ function SidebarContainer({ user }) {
                 body: JSON.stringify(formValue),
             })
             if(res.ok){
-                setFolders([ formValue, ...folders ])
+                // setFolders([ formValue, ...folders ])
+                await getFolders()
                 setValue({
                     title:'',
                     id:'',
@@ -43,6 +44,19 @@ function SidebarContainer({ user }) {
             alert('もう一度送信してください🙇')
         }   
     }
+    const getFolders = async () => {
+        return await fetch('/get/folders')
+                    .then(res => res.json())
+                    .then(data => {setFolders(data.folders)})
+                    .catch(error => alert('ページをリロードしてください🙇'))
+    };
+    // useEffect(() =>{
+    //     fetch("/get/folders")
+    //     .then(res => res.json())
+    //     .then(data => {setFolders(data.folders)})
+    //     .catch(error => console.error('Error fetching folders', error))
+    // },[])
+
     const [ articles , setArticles ] = useState(user.articles);
     const [ formArticleValue , setFormArticleValue ] = useState({
         url:"",
@@ -87,9 +101,9 @@ function SidebarContainer({ user }) {
     }
     const getArticles = async () => {
         return await fetch('/get/articles')
-                        .then(res => res.json())
-                        .then(data => {setArticles(data.articles)})
-                        .catch(error => alert('ページをリロードしてください🙇'))
+                    .then(res => res.json())
+                    .then(data => {setArticles(data.articles)})
+                    .catch(error => alert('ページをリロードしてください🙇'))
     };
     const handleSelectFolder = async (id) => {
         // console.log('key',key);
