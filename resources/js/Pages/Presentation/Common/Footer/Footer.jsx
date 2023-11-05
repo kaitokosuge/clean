@@ -18,14 +18,14 @@ function Footer({ handleArticleFormSubmit, handleArticleObj ,folders ,formArticl
                         {folders.map(( folder ) => (
                             <div key={folder.id}>
                                 <div className={ isHover == true ? "mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-500" : "mt-[10px] p-1 rounded-md flex items-center opacity-0"}>
-                                    <input onChange = { {handleArticleObj} } name="folder" className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.id} id={folder.id} checked={formArticleValue.folder.includes(folder.id)}/>
+                                    <input onChange = { handleArticleObj } name="folder" className="rounded-md bg-zinc-400 focus:bg-sky-900 text-sky-900 focus:ring-0" type="checkbox" key={folder.id} value={folder.id} id={folder.id} />
                                     <label className="ml-[8px] block w-full" for={folder.id}>{folder.title}</label>
                                 </div>
                             </div>
                         )
                         )}
                         
-                    </div>  
+                    </div>
                     <button type="submit" className="absolute pointer z-20 text-white border border-gray-600 rounded-md px-[18px] py-[5px] right-[345px] top-[51px] duration-200 hover:text-black hover:bg-gray-300">▷</button>
                 </form> 
                 {/* <div onMouseEnter={ handleHover } className="mt-[55px] border border-zinc-500 bg-zinc-800 rounded-[5px] w-[50px] h-[50px] text-xs font-bold flex items-center justify-around text-center text-zinc-300 cursor-pointer relative right-[25%]"><p className="">Folder</p></div>

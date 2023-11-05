@@ -50,6 +50,7 @@ class ArticleController extends Controller
         $article->url = $url;
         $article->user_id = \Auth::id();
         $article->save();
+
         $folders = $request->folder;
         foreach ($folders as $folder) {
             $article->folders()->attach([

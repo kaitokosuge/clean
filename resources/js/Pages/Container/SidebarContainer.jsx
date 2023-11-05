@@ -66,8 +66,11 @@ function SidebarContainer({ user }) {
         // setFormArticleValue((prev) => ({...prev , [e.target.name] : [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
         setFormArticleValue((prev) => {
             if(e.target.name === 'folder'){
+                console.log('hello');
                 return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
             } else {
+                console.log('hello2');
+                console.log('e.target.value',e.target.value);
                 return { ...prev, [e.target.name]: e.target.value };
             }
         })
@@ -92,7 +95,7 @@ function SidebarContainer({ user }) {
                 });
             } else{
                 alert('ページを再読み込みし、もう一度送信してください')
-                console.log('no-ok')
+                console.log('no-ok');
             }
         } catch(erros){ 
             console.log('error');

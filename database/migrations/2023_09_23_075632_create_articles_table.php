@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('url');
             $table->text('description')->nullable();
-            $table->string('site_name')->nullable();
+            $table->text('site_name')->nullable();
             $table->foreignId('user_id')->conatrained();
             $table->timestamps();
         });
