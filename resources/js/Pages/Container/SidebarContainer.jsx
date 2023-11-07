@@ -66,10 +66,11 @@ function SidebarContainer({ user }) {
         // setFormArticleValue((prev) => ({...prev , [e.target.name] : [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
         setFormArticleValue((prev) => {
             if(e.target.name === 'folder'){
-                if(e.target.checked){    
+                if(e.target.checked){ 
+
                     return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
                 } else {
-                    return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+                    return { ...prev, [e.target.name]: prev[e.target.name].filter(value => value !== e.target.value) };
                 }
 
             } else {

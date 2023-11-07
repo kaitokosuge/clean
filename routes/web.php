@@ -23,6 +23,8 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/top', [ContainerController::class, 'showTop']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/', [FolderController::class, 'index']);
     Route::post('/folder', [FolderController::class, 'store']);
@@ -30,8 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/folders/{folder}', [FolderController::class, 'getSelectFolder']);
     Route::get('/get/folders', [FolderController::class, 'getFolders']);
     Route::get('/get/articles', [ArticleController::class, 'getArticles']);
-
-    Route::get('/top', [ContainerController::class, 'showTop']);
 
     Route::get('/profile/{user}', [ContainerController::class, 'showProfile']);
 
