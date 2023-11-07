@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->text('title')->nullable();
-            $table->text('image')->nullable();
-            $table->text('url');
+            $table->longText('image')->nullable();
+            $table->longText('url');
             $table->text('description')->nullable();
             $table->text('site_name')->nullable();
             $table->foreignId('user_id')->conatrained();

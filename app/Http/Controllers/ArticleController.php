@@ -15,7 +15,9 @@ class ArticleController extends Controller
         $url = $request->url;
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', $url);
+
         $crawler = new Crawler($response->getBody()->getContents());
+
         $ogpTitleEl = $crawler->filter('meta[property="og:title"]');
         if ($ogpTitleEl->count() > 0) {
             $ogpTitle = $crawler->filter('meta[property="og:title"]')->attr('content');

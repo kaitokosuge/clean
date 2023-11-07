@@ -66,8 +66,12 @@ function SidebarContainer({ user }) {
         // setFormArticleValue((prev) => ({...prev , [e.target.name] : [e.target.name] == 'folder' ? [e.target.value] : e.target.value }))
         setFormArticleValue((prev) => {
             if(e.target.name === 'folder'){
-                console.log('hello');
-                return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+                if(e.target.checked){    
+                    return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+                } else {
+                    return { ...prev, [e.target.name]: [...prev[e.target.name], e.target.value] };
+                }
+
             } else {
                 console.log('hello2');
                 console.log('e.target.value',e.target.value);
@@ -120,7 +124,7 @@ function SidebarContainer({ user }) {
         <>
             <Header name={user.name}/>
             <Sidebar value={ value } setValue={ setValue } handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } />
-            <Articles  articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <Articles articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } formArticleValue ={ formArticleValue }folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );
