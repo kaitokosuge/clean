@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/get/folders', [FolderController::class, 'getFolders']);
     Route::get('/get/articles', [ArticleController::class, 'getArticles']);
 
+
+    Route::post('/log/{article}', [ArticleController::class, 'storeLog']);
     Route::get('/profile/{user}', [ContainerController::class, 'showProfile']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

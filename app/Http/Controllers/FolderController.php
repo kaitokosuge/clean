@@ -7,15 +7,18 @@ use Inertia\Inertia;
 use App\Models\Folder;
 use Cloudinary;
 use App\Models\User;
+use App\Models\Article;
+
 
 class FolderController extends Controller
 {
     public function index()
     {
         $login_user_id = \Auth::user()->id;
+        $articles = Article::with('log')->where('user_id', $login_user_id)->get();
         return Inertia::render(
             'Container/SidebarContainer'
-        )->with(['user' => User::with('folders')->with('articles')->where("id", $login_user_id)->first()]);
+        )->with(['articlesWithLog' => $articles,  'user' => User::where("id", $login_user_id)->with('folders')->with('articles')->with('logs')->first()]);
     }
     public function store(Request $request, Folder $folder)
     {

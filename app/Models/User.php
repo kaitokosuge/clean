@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class)->orderBy('updated_at', 'DESC');
     }
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 }

@@ -5,7 +5,8 @@ import Sidebar from "../Presentation/Common/Sidebar/Sidebar";
 import Articles from "../Presentation/Pages/Articles";
 
 
-function SidebarContainer({ user }) {
+function SidebarContainer({ user , articlesWithLog }) {
+    console.log(user);
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
@@ -55,7 +56,7 @@ function SidebarContainer({ user }) {
     //     .catch(error => console.error('Error fetching folders', error))
     // },[])
 
-    const [ articles , setArticles ] = useState(user.articles);
+    const [ articles , setArticles ] = useState(articlesWithLog);
     const [ formArticleValue , setFormArticleValue ] = useState({
         url:"",
         folder:[],
@@ -118,11 +119,12 @@ function SidebarContainer({ user }) {
             .then(console.log('articles',articles))
             .catch(error =>  console.log('ページをリロードしてください🙇'));
     };
+    
     return (
         <>
             <Header name={user.name}/>
             <Sidebar value={ value } setValue={ setValue } handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } />
-            <Articles articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <Articles articles={ articlesWithLog } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } formArticleValue ={ formArticleValue }folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );
