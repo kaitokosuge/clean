@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->text('log');
+            $table->text('log')->nullable();
             $table->foreignId('article_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

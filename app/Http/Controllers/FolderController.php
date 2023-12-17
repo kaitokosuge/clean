@@ -15,7 +15,7 @@ class FolderController extends Controller
     public function index()
     {
         $login_user_id = \Auth::user()->id;
-        $articles = Article::with('log')->where('user_id', $login_user_id)->get();
+        $articles = Article::with('log')->where('user_id', $login_user_id)->orderBy('updated_at', 'DESC')->get();
         return Inertia::render(
             'Container/SidebarContainer'
         )->with(['articlesWithLog' => $articles,  'user' => User::where("id", $login_user_id)->with('folders')->with('articles')->with('logs')->first()]);

@@ -116,7 +116,6 @@ function SidebarContainer({ user , articlesWithLog }) {
         return await fetch(`/folders/${id}`)
             .then(res => res.json())
             .then(data => {setArticles(data.selectFolderArticles)})
-            .then(console.log('articles',articles))
             .catch(error =>  console.log('ページをリロードしてください🙇'));
     };
     
@@ -124,7 +123,7 @@ function SidebarContainer({ user , articlesWithLog }) {
         <>
             <Header name={user.name}/>
             <Sidebar value={ value } setValue={ setValue } handleSelectFolder={ handleSelectFolder } folders={ folders } handleFormSubmit={ handleFormSubmit } formValue={ formValue } setFormValue={ setFormValue } />
-            <Articles articles={ articlesWithLog } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
+            <Articles articles={ articles } folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
             <Footer handleArticleObj={ handleArticleObj } handleArticleFormSubmit={ handleArticleFormSubmit } setFormArticleValue={ setFormArticleValue } formArticleValue ={ formArticleValue }folders={ folders } handleFormSubmit={ handleFormSubmit } setFormValue={ setFormValue }/>
         </>
     );

@@ -64,7 +64,8 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
                         <p className="mt-1 text-xs limit">👤site: {article.site_name}</p>
                         <div className={isLinkHover == true ? "flex duration-300 opacity-100 visible mt-1 justify-end" : "flex justify-end opacity-0 duration-500 invisible" }>
                             <div onClick={handleHover} className="relative z-90 w-[70px] h-[35px] rounded-full mr-1 bg-gray-300 text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-zinc-800 hover:text-white hover:duration-200"><p className="mt-[3px]">Log</p></div>
-                            <div onClick={handleToFolderHover} className="w-[70px] h-[35px] rounded-full mr-1 bg-gray-300 text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-zinc-800 hover:text-white hover:duration-200"><p className="mt-[3px]">folder</p></div>
+                            <div onClick={handleToFolderHover} className="w-[70px] h-[35px] rounded-full mr-1 bg-gray-300 text-black font-bold text-center leading-7 text-xs duration-300 hover:bg-zinc-800 hover:text-white hover:duration-200"><p className="mt-[3px]">manage</p></div>
+                            
                         </div>
                     </div>
                 </a>
@@ -74,11 +75,12 @@ function ArticlesContent({ article,folders ,handleFormSubmit , setFormValue }) {
                             <p className={ isHover == true ? 'text-black font-bold opacity-100 visible': 'text-black font-bold opacity-0 duration-300 invisible'}>Log</p>
                             <button type="submit" className="font-bold border border-black text-white py-[2px] px-[5px] rounded-md bg-black ">save</button>
                         </div>
-                        <textarea onChange={ (e) => { setLog({log: e.target.value}) }  }className="text-xl font-bold text-black w-full h-[85%] mt-[10px] rounded-md duration-300 border outline-none focus:border-black focus:ring-zinc-400 p-5 border-none">{article.log}</textarea>
+                        <textarea onChange={ (e) => { setLog({log: e.target.value}) }  }className="text-xl font-bold text-black w-full h-[85%] mt-[10px] rounded-md duration-300 border outline-none focus:border-black focus:ring-zinc-400 p-5 border-none">{article.log == null ? '' : article.log.log}</textarea>
                     </form>            
                 </div>
                 <div onMouseLeave={handleToFolderHover} className={ isToFolderHover == true ? "m-0 ml-auto opacity-100 visible w-[50%] relative top-[-50px] h-[400px] bg-zinc-900 rounded-xl p-5 z-100 duration-300 overflow-scroll" : "m-0 ml-auto relative top-[-50px] opacity-0 duration-500 invisible w-0 h-0" }>
                     <p className={ isToFolderHover == true ? 'text-gray-500 font-bold opacity-100 visible limit': 'text-black font-bold opacity-0 duration-300 invisible h-0'}>folder→{article.title}</p>
+                    <p>delete</p>
                     {folders.map(( folder ) => (
                         <div key={folder.id}>
                             <div className={isToFolderHover == true ? "mt-[10px] p-1 rounded-md flex items-center duration-300 hover:bg-zinc-700 hover:duration-200" : "hidden" }>

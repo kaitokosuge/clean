@@ -68,7 +68,7 @@ class ArticleController extends Controller
         // $user = \Auth::user();
         // $articles = $user->articles()->with('log')->get();
         $user_id = \Auth::id();
-        $articles = Article::with('log')->where('user_id', $user_id)->get();
+        $articles = Article::with('log')->where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
         return response()->json([
             'articles' => $articles,
         ]);

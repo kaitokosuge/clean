@@ -13,7 +13,7 @@ function SidebarNav({folders, handleSelectFolder }) {
                     <li className="font-bold text-[20px] w-fit min-w-[100%] p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200 cursor-pointer active:scale-95"><Link href="/">all articles</Link></li>
                     {folders.map((folder) => (
                         <>
-                            <li onClick={() => {handleSelectFolder(folder.id)}} className="w-fit min-w-[100%] text-[16px] p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200 cursor-pointer active:scale-95" key={ folder.id }><span className='flex items-center'><LockOutlinedIcon className='mr-[5px]' fontColor='blue' fontSize='small'/><span className='block font-bold text-md'>{folder.title}</span></span></li>
+                            <li onClick={() => {handleSelectFolder(folder.id)}} className="w-fit min-w-[100%] text-[16px] p-1 rounded-[10px] py-[8px] duration-200 hover:bg-zinc-700 hover:duration-200 cursor-pointer active:scale-95" key={ folder.id }><span className='flex items-center'><span className='block w-[15px] h-[15px] bg-blue-600 rounded-[5px]'></span><span className='block font-bold text-md ml-[7px]'>{folder.title}</span></span></li>
                         </>
                     ))}
                 </ul>
