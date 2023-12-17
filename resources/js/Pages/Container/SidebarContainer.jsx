@@ -5,7 +5,8 @@ import Sidebar from "../Presentation/Common/Sidebar/Sidebar";
 import Articles from "../Presentation/Pages/Articles";
 
 
-function SidebarContainer({ user }) {
+function SidebarContainer({ user , articlesWithLog }) {
+    console.log(user);
     //foldersは子コンポーネントへ送るfolder情報
     const [ folders , setFolders ]  = useState(user.folders);
     //formValueは初期値空、子コンポーネント（sidebarForm）のsetFormValueでフォーム入力内容を格納することができ、ここに渡ってくる
@@ -55,7 +56,7 @@ function SidebarContainer({ user }) {
     //     .catch(error => console.error('Error fetching folders', error))
     // },[])
 
-    const [ articles , setArticles ] = useState(user.articles);
+    const [ articles , setArticles ] = useState(articlesWithLog);
     const [ formArticleValue , setFormArticleValue ] = useState({
         url:"",
         folder:[],
@@ -115,9 +116,9 @@ function SidebarContainer({ user }) {
         return await fetch(`/folders/${id}`)
             .then(res => res.json())
             .then(data => {setArticles(data.selectFolderArticles)})
-            .then(console.log('articles',articles))
             .catch(error =>  console.log('ページをリロードしてください🙇'));
     };
+    
     return (
         <>
             <Header name={user.name}/>

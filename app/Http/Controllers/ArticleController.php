@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Folder;
+use App\Models\Log;
+
 use Symfony\Component\DomCrawler\Crawler;
 
 
@@ -63,10 +65,20 @@ class ArticleController extends Controller
 
     public function getArticles()
     {
-        $user = \Auth::user();
-        $articles = $user->articles()->get();
+        // $user = \Auth::user();
+        // $articles = $user->articles()->with('log')->get();
+        $user_id = \Auth::id();
+        $articles = Article::with('log')->where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
         return response()->json([
             'articles' => $articles,
         ]);
+    }
+    public function storeLog(Request $request, Article $article, Log $log)
+    {
+        // dd($request);
+        $input = $request->all();
+        $log->user_id = \Auth::id();
+        $log->article_id = $article->id;
+        $log->fill($input)->save();
     }
 }

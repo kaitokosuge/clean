@@ -3,7 +3,7 @@ import ArticlesContent from './ArticlesContent';
 
 
 function Articles({ articles ,folders ,handleFormSubmit , setFormValue }) {
-
+console.log('articles',articles);
     return (
         <div className="w-[70%] pt-10 ml-[22%] h-screen">
             <ul className="">

@@ -20,4 +20,8 @@ class Article extends Model
     {
         return $this->belongsToMany(Folder::class, 'article_folder', 'article_id', 'folder_id');
     }
+    public function log()
+    {
+        return $this->hasOne(Log::class);
+    }
 }
